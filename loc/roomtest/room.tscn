@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6eah46li8ixv"]
+
+[ext_resource type="Texture2D" uid="uid://eo0kncvs3yrg" path="res://egg/0.0.02.png" id="1_ucfoa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_whkyu"]
+load_path = "res://.godot/imported/Без названия42_20251123133006.png-eab0abdcf21c9540068f43c0335a8373.ctex"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjkhc"]
+rough = true
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_71jsx"]
+a = Vector2(-1067, 933)
+b = Vector2(-398, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n65ub"]
+size = Vector2(2373, 580.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rqio7"]
+a = Vector2(589, 140)
+b = Vector2(-587, 142)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sjkhc"]
+a = Vector2(693, 736)
+b = Vector2(21, 11)
+
+[node name="room" type="Sprite2D"]
+texture = SubResource("CompressedTexture2D_whkyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(386, -243.99997)
+scale = Vector2(0.215, 0.215)
+texture = ExtResource("1_ucfoa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_sjkhc")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-181, -607)
+shape = SubResource("SegmentShape2D_71jsx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(15, 980)
+shape = SubResource("RectangleShape2D_n65ub")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-15, -726.75)
+shape = SubResource("RectangleShape2D_n65ub")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1385, 161)
+rotation = -1.5733193
+shape = SubResource("RectangleShape2D_n65ub")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1384, 154)
+rotation = -1.5733193
+shape = SubResource("RectangleShape2D_n65ub")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -471)
+shape = SubResource("SegmentShape2D_rqio7")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(569, -371)
+shape = SubResource("SegmentShape2D_sjkhc")

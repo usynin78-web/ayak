@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://l17djkebhldr"]
+
+[ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="1_yt4tk"]
+
+[resource]
+font = ExtResource("1_yt4tk")
+font_size = 40
+font_color = Color(0.919, 0.718, 0.601, 1)
+outline_size = 5
+outline_color = Color(0.273, 0.159, 0.09, 1)

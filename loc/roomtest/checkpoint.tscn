@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkimxk1bjfqin"]
+
+[ext_resource type="Texture2D" uid="uid://7vxv470mkc7s" path="res://objects/Без названия94_20260324093411.png" id="1_3ftue"]
+[ext_resource type="Script" uid="uid://856ea7t4jqy6" path="res://loc/roomtest/cubearea.gd" id="2_i3qfx"]
+[ext_resource type="Texture2D" uid="uid://dpldflqa5dqn5" path="res://Gameplay object button/Ebutton.svg" id="3_38c4i"]
+[ext_resource type="FontFile" uid="uid://cksmuq6fd0iiv" path="res://font/Neucha forayak/Neucha-Regular.ttf" id="4_q30nc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ftue"]
+radius = 83.0
+height = 202.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38c4i"]
+radius = 81.0
+height = 200.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_510ut"]
+font = ExtResource("4_q30nc")
+font_size = 81
+
+[sub_resource type="LabelSettings" id="LabelSettings_q30nc"]
+font = ExtResource("4_q30nc")
+font_size = 61
+
+[node name="checkpoint" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3ftue")
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("e_icon", "save_label")]
+script = ExtResource("2_i3qfx")
+e_icon = NodePath("../CanvasLayer/TextureRect")
+save_label = NodePath("../CanvasLayer/Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -399)
+shape = SubResource("CapsuleShape2D_3ftue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -402)
+shape = SubResource("CapsuleShape2D_38c4i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -87.0
+offset_right = 508.0
+grow_horizontal = 2
+grow_vertical = 0
+accessibility_name = "Сохранение успешно выполенено"
+text = "Сохранение успешно выполенено"
+label_settings = SubResource("LabelSettings_510ut")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_left = 94.0
+offset_top = -186.0
+offset_right = 189.0
+offset_bottom = -54.0
+accessibility_name = "press to E"
+texture = ExtResource("3_38c4i")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 34.0
+offset_right = 341.0
+offset_bottom = 99.0
+accessibility_name = "save"
+text = "Сохранить"
+label_settings = SubResource("LabelSettings_q30nc")
