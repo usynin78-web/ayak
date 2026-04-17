@@ -24,7 +24,7 @@ func get_spawn_position(default_pos: Vector2) -> Vector2:
   return last_position
 
  var config = ConfigFile.new()
- if config.load(SAVE_FILE) == OK:
+ if config.load(SAVE_FILE) == OK and _is_valid_checkpoint(config):
   var x = config.get_value("player", "x", default_pos.x)
   var y = config.get_value("player", "y", default_pos.y)
   last_position = Vector2(x, y)
@@ -39,7 +39,7 @@ func has_save() -> bool:
   return true
 
  var config = ConfigFile.new()
- if config.load(SAVE_FILE) == OK:
+ if config.load(SAVE_FILE) == OK and _is_valid_checkpoint(config):
   return true
 
  return false
@@ -47,6 +47,14 @@ func has_save() -> bool:
 func clear_save() -> void:
  last_position = Vector2.ZERO
  has_checkpoint = false
- var config = ConfigFile.new()
- config.save(SAVE_FILE)
+
+ var save_path := ProjectSettings.globalize_path(SAVE_FILE)
+ if FileAccess.file_exists(SAVE_FILE):
+  var err = DirAccess.remove_absolute(save_path)
+  if err != OK:
+   push_error("Не удалось удалить файл сохранения!")
+
  print("Сохранение сброшено")
+
+func _is_valid_checkpoint(config: ConfigFile) -> bool:
+ return config.has_section_key("player", "x") and config.has_section_key("player", "y")
