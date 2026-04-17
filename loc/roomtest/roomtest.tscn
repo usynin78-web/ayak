@@ -68,7 +68,6 @@ libraries = {
 }
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" parent="UI" instance=ExtResource("5_n65ub")]
 offset_top = 6.0
