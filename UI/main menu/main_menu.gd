@@ -30,29 +30,55 @@ func _input(event):
 
 func _on_start_pressed():
  var tree = get_tree()
- loading_screen.visible = true
- loading_screen.play()
-
- await get_tree().create_timer(1.2).timeout
+ await _play_loading_full_animation()
 
  if tree:
   if CheckpointManager.has_save():
-   CheckpointManager.clear_save()  
+   CheckpointManager.clear_save()
   tree.change_scene_to_file("res://loc/roomtest/roomtest.tscn")
  else:
   push_error("SceneTree не найден")
 
 func _on_continue_pressed():
  var tree = get_tree()
- loading_screen.visible = true
- loading_screen.play()
-
- await get_tree().create_timer(1.2).timeout
+ await _play_loading_full_animation()
 
  if tree:
   tree.change_scene_to_file("res://loc/roomtest/roomtest.tscn")
  else:
   push_error("SceneTree не найден")
+
+func _play_loading_full_animation():
+ loading_screen.visible = true
+ loading_screen.play()
+
+ var duration = _get_loading_animation_duration()
+ if duration > 0.0:
+  await get_tree().create_timer(duration).timeout
+ else:
+  await get_tree().process_frame
+
+func _get_loading_animation_duration() -> float:
+ if loading_screen.sprite_frames == null:
+  return 0.0
+
+ var animation_name = loading_screen.animation
+ if animation_name == &"":
+  return 0.0
+
+ var frame_count = loading_screen.sprite_frames.get_frame_count(animation_name)
+ if frame_count <= 0:
+  return 0.0
+
+ var total_frame_duration = 0.0
+ for frame in frame_count:
+  total_frame_duration += loading_screen.sprite_frames.get_frame_duration(animation_name, frame)
+
+ var playback_speed = loading_screen.sprite_frames.get_animation_speed(animation_name) * absf(loading_screen.speed_scale)
+ if playback_speed <= 0.0:
+  return 0.0
+
+ return total_frame_duration / playback_speed
 
 func _on_exit_pressed():
  get_tree().quit()
