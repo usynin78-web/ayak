@@ -29,14 +29,6 @@ _data = {
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_rqio7")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2252.0
-offset_top = -1653.0
-offset_right = 4463.0
-offset_bottom = 3187.0
-accessibility_name = "background"
-color = Color(0, 0, 0, 1)
-
 [node name="room" parent="." instance=ExtResource("2_n65ub")]
 position = Vector2(988, 587)
 
