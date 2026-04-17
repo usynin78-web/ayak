@@ -32,8 +32,7 @@ func _on_start_pressed():
  var tree = get_tree()
  loading_screen.visible = true
  loading_screen.play()
-
- await get_tree().create_timer(1.2).timeout
+ await _play_loading_animation_fully()
 
  if tree:
   if CheckpointManager.has_save():
@@ -46,8 +45,7 @@ func _on_continue_pressed():
  var tree = get_tree()
  loading_screen.visible = true
  loading_screen.play()
-
- await get_tree().create_timer(1.2).timeout
+ await _play_loading_animation_fully()
 
  if tree:
   tree.change_scene_to_file("res://loc/roomtest/roomtest.tscn")
@@ -56,3 +54,21 @@ func _on_continue_pressed():
 
 func _on_exit_pressed():
  get_tree().quit()
+
+func _play_loading_animation_fully() -> void:
+ if loading_screen == null or loading_screen.sprite_frames == null:
+  return
+
+ var animation_name := loading_screen.animation
+ if animation_name == "":
+  return
+
+ var frame_count := loading_screen.sprite_frames.get_frame_count(animation_name)
+ var fps := loading_screen.sprite_frames.get_animation_speed(animation_name)
+ var speed_scale := abs(loading_screen.speed_scale)
+
+ if frame_count <= 0 or fps <= 0.0 or speed_scale <= 0.0:
+  return
+
+ var animation_duration := float(frame_count) / (fps * speed_scale)
+ await get_tree().create_timer(animation_duration).timeout
