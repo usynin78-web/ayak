@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b8lfkrsaj8rb3"]
+[gd_scene load_steps=38 format=3 uid="uid://b8lfkrsaj8rb3"]
 
 [ext_resource type="Texture2D" uid="uid://c3qtvoy7awv3v" path="res://animch/пустышки всех персонажей/1748537157153.png" id="1_i6o50"]
 [ext_resource type="Script" uid="uid://bf41rw8tvv2dh" path="res://animch/c3/c3.gd" id="1_jeufa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dru2pmc2v1gfr" path="res://animch/пустышки всех персонажей/1747163365516.png" id="3_unj4r"]
 [ext_resource type="Texture2D" uid="uid://bak3uri2r6nqb" path="res://animch/пустышки всех персонажей/1748537157127.png" id="4_m3ot0"]
 [ext_resource type="Texture2D" uid="uid://kc2o71sh7hed" path="res://UI/ign/1000023051-0.png" id="6_unj4r"]
+[ext_resource type="Script" uid="uid://cy1quoywrcnyq" path="res://animch/c3/health_component.gd" id="7_m3ot0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7d080"]
 radius = 115.0
@@ -256,3 +257,6 @@ rotation = 0.21962346
 sprite_frames = SubResource("SpriteFrames_j0jag")
 frame = 30
 frame_progress = 0.51979154
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("7_m3ot0")

@@ -60,3 +60,4 @@ func update_perspective() -> void:
 	sprite_back.scale = base_scale * scale_factor
 	sprite_left.scale = base_scale * scale_factor
 	sprite_right.scale = base_scale * scale_factor
+	
