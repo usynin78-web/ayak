@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkimxk1bjfqin"]
 
-[ext_resource type="Texture2D" uid="uid://7vxv470mkc7s" path="res://objects/Без названия94_20260324093411.png" id="1_3ftue"]
+[ext_resource type="Texture2D" uid="uid://c0h1puhfm6l4x" path="res://objects/Без названия94_20260324093411.webp" id="1_q30nc"]
 [ext_resource type="Script" uid="uid://856ea7t4jqy6" path="res://loc/roomtest/cubearea.gd" id="2_i3qfx"]
 [ext_resource type="Texture2D" uid="uid://dpldflqa5dqn5" path="res://Gameplay object button/Ebutton.svg" id="3_38c4i"]
 [ext_resource type="FontFile" uid="uid://cksmuq6fd0iiv" path="res://font/Neucha forayak/Neucha-Regular.ttf" id="4_q30nc"]
@@ -24,7 +24,7 @@ font_size = 61
 [node name="checkpoint" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3ftue")
+texture = ExtResource("1_q30nc")
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("e_icon", "save_label")]
 script = ExtResource("2_i3qfx")
