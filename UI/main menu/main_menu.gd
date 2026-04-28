@@ -49,6 +49,9 @@ func _on_continue_pressed():
   push_error("SceneTree не найден")
 
 func _play_loading_full_animation():
+ if not _has_valid_loading_animation_frames():
+  return
+
  loading_screen.visible = true
  loading_screen.play()
 
@@ -79,6 +82,25 @@ func _get_loading_animation_duration() -> float:
   return 0.0
 
  return total_frame_duration / playback_speed
+
+func _has_valid_loading_animation_frames() -> bool:
+ if loading_screen == null or loading_screen.sprite_frames == null:
+  return false
+
+ var animation_name = loading_screen.animation
+ if animation_name == &"":
+  return false
+
+ var frame_count = loading_screen.sprite_frames.get_frame_count(animation_name)
+ if frame_count <= 0:
+  return false
+
+ for frame in frame_count:
+  if loading_screen.sprite_frames.get_frame_texture(animation_name, frame) == null:
+   push_warning("Loading animation frame %d is missing in '%s'. Skipping loading animation." % [frame, animation_name])
+   return false
+
+ return true
 
 func _on_exit_pressed():
  get_tree().quit()

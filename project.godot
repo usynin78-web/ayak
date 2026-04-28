@@ -14,7 +14,9 @@ config/name="ayak"
 config/tags=PackedStringArray("0.0.02", "2d", "dev", "official")
 run/main_scene="uid://bvlaetq501c7o"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://dy5pyvcng3vrv"
+config/icon="uid://c3o5lxe3c52d0"
 
 [autoload]
 

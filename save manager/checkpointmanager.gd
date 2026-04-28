@@ -51,8 +51,7 @@ func clear_save() -> void:
  var save_path := ProjectSettings.globalize_path(SAVE_FILE)
  if FileAccess.file_exists(SAVE_FILE):
   var err = DirAccess.remove_absolute(save_path)
-  if err != OK:
-   push_error("Не удалось удалить файл сохранения!")
+  if err != OK:   push_error("Не удалось удалить файл сохранения!")
 
  print("Сохранение сброшено")
 
