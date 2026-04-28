@@ -1,9 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6eah46li8ixv"]
 
+[ext_resource type="Texture2D" uid="uid://cmpcfdgabfrua" path="res://loc/roomtest/Без названия42_20251123133006.webp" id="1_frsc0"]
 [ext_resource type="Texture2D" uid="uid://eo0kncvs3yrg" path="res://egg/0.0.02.png" id="1_ucfoa"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_whkyu"]
-load_path = "res://.godot/imported/Без названия42_20251123133006.png-eab0abdcf21c9540068f43c0335a8373.ctex"
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjkhc"]
 rough = true
@@ -24,7 +22,7 @@ a = Vector2(693, 736)
 b = Vector2(21, 11)
 
 [node name="room" type="Sprite2D"]
-texture = SubResource("CompressedTexture2D_whkyu")
+texture = ExtResource("1_frsc0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(386, -243.99997)
