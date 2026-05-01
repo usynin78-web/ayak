@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://eft45k6v5337" path="res://UI/HP/Без названия98_20260329020428.png" id="2_guggj"]
 [ext_resource type="Texture2D" uid="uid://dfwwwx7gylk7v" path="res://UI/HP/Без названия98_20260329022406.png" id="3_q2hib"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" groups=["hp"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -42,9 +42,9 @@ position = Vector2(459, 642)
 [node name="c3" parent="." instance=ExtResource("2_rqio7")]
 position = Vector2(982.00006, 584.00006)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
 
-[node name="Control" parent="UI" instance=ExtResource("5_n65ub")]
+[node name="hp" parent="UI" groups=["hp"] instance=ExtResource("5_n65ub")]
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 

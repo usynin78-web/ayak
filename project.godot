@@ -36,6 +36,8 @@ hp=""
 mtv=""
 dial=""
 rep=""
+game_over=""
+ui=""
 
 [input]
 

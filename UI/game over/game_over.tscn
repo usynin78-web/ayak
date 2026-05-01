@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmgcjwdltpuys"]
+
+[ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="1_8dbwb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4qqaj"]
+font = ExtResource("1_8dbwb")
+font_size = 123
+
+[sub_resource type="LabelSettings" id="LabelSettings_ru5wp"]
+font = ExtResource("1_8dbwb")
+font_size = 100
+
+[sub_resource type="Theme" id="Theme_wjdna"]
+Button/font_sizes/font_size = 80
+Button/fonts/font = ExtResource("1_8dbwb")
+
+[node name="GameOver" type="Control" groups=["game_over"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -830.0
+offset_top = -288.0
+offset_right = 831.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Хорошее начало"
+label_settings = SubResource("LabelSettings_4qqaj")
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -626.5
+offset_top = 81.0
+offset_right = 623.5
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Жаль недолгое"
+label_settings = SubResource("LabelSettings_ru5wp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -654.0
+offset_top = 140.0
+offset_right = 654.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+accessibility_name = "start"
+theme = SubResource("Theme_wjdna")
+theme_type_variation = &"FlatButton"
+text = "Начать заново"
+
+[node name="start2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+accessibility_name = "start"
+theme = SubResource("Theme_wjdna")
+theme_type_variation = &"FlatButton"
+text = "В главное меню"
+
+[node name="start3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+accessibility_name = "start"
+theme = SubResource("Theme_wjdna")
+theme_type_variation = &"FlatButton"
+text = "Выход из игры"
