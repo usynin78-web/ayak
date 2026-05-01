@@ -26,7 +26,6 @@ CheckpointManager="*res://save manager/checkpointmanager.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 mouse_cursor/custom_image="uid://bu73qisqmypg4"
 
 [global_group]
