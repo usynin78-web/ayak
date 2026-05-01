@@ -260,3 +260,5 @@ frame_progress = 0.51979154
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_m3ot0")
+
+[connection signal="health_changed" from="HealthComponent" to="HealthComponent" method="_on_health_changed"]
