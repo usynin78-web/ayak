@@ -3,3 +3,6 @@
 /android/
 /project.godot/
 /export_presets.cfg/
+/.tmp.driveupload
+/.tmp.drivedownload
+.gitignore (1)

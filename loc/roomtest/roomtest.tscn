@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1iyo0wokvbke"]
+[gd_scene load_steps=10 format=3 uid="uid://d1iyo0wokvbke"]
 
 [ext_resource type="Script" uid="uid://y7ymu3ojilq3" path="res://loc/roomtest/roomtest.gd" id="1_rqio7"]
 [ext_resource type="PackedScene" uid="uid://b6eah46li8ixv" path="res://loc/roomtest/room.tscn" id="2_n65ub"]
 [ext_resource type="PackedScene" uid="uid://b8lfkrsaj8rb3" path="res://animch/c3/c3.tscn" id="2_rqio7"]
+[ext_resource type="PackedScene" uid="uid://uyosw5lg634q" path="res://UI/HP/cake.tscn" id="3_lf4hv"]
 [ext_resource type="PackedScene" uid="uid://dkimxk1bjfqin" path="res://loc/roomtest/checkpoint.tscn" id="3_sjkhc"]
 [ext_resource type="PackedScene" uid="uid://cfjm7vprwitbq" path="res://UI/HP/hp.tscn" id="5_n65ub"]
 [ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="6_7d080"]
@@ -33,6 +34,9 @@ script = ExtResource("1_rqio7")
 [node name="room" parent="." instance=ExtResource("2_n65ub")]
 position = Vector2(988, 587)
 
+[node name="cake" parent="." instance=ExtResource("3_lf4hv")]
+position = Vector2(1204, 882)
+
 [node name="damage" parent="." instance=ExtResource("6_7d080")]
 position = Vector2(1515, 749)
 
@@ -44,7 +48,7 @@ position = Vector2(982.00006, 584.00006)
 
 [node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
 
-[node name="hp" parent="UI" groups=["hp"] instance=ExtResource("5_n65ub")]
+[node name="hp" parent="UI" instance=ExtResource("5_n65ub")]
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 

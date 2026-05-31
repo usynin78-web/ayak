@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://uyosw5lg634q"]
+
+[ext_resource type="Texture2D" uid="uid://bi7xgl5g42ctw" path="res://objects/Торт, от которого у меня оргазм.webp" id="1_fnqhu"]
+[ext_resource type="Script" uid="uid://ch2angr03d6b3" path="res://UI/HP/cake.gd" id="2_fnqhu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khg8s"]
+radius = 27.906616
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fnqhu"]
+radius = 29.0
+height = 76.0
+
+[node name="cake" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fnqhu")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_fnqhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(14, -293.00003)
+rotation = -1.5557593
+shape = SubResource("CapsuleShape2D_khg8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, -293)
+rotation = -1.5722061
+shape = SubResource("CapsuleShape2D_fnqhu")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
