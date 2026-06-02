@@ -41,11 +41,11 @@ position = Vector2(1515, 749)
 [node name="cake" parent="." instance=ExtResource("3_lf4hv")]
 position = Vector2(1375, 874)
 
-[node name="Node2D" parent="." instance=ExtResource("5_lxy7o")]
-position = Vector2(364, 847)
-
 [node name="checkpoint" parent="." instance=ExtResource("3_sjkhc")]
 position = Vector2(459, 642)
+
+[node name="cube" parent="." instance=ExtResource("5_lxy7o")]
+position = Vector2(364, 847)
 
 [node name="c3" parent="." instance=ExtResource("2_rqio7")]
 position = Vector2(982.00006, 584.00006)
