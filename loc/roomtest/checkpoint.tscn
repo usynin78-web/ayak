@@ -6,12 +6,12 @@
 [ext_resource type="FontFile" uid="uid://cksmuq6fd0iiv" path="res://font/Neucha forayak/Neucha-Regular.ttf" id="4_q30nc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ftue"]
-radius = 83.0
-height = 202.0
+radius = 80.0
+height = 326.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38c4i"]
-radius = 81.0
-height = 200.0
+radius = 56.0
+height = 318.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_510ut"]
 font = ExtResource("4_q30nc")
@@ -26,17 +26,18 @@ font_size = 61
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q30nc")
 
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("e_icon", "save_label")]
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("e_icon", "save_label") groups=["checpoint"]]
+position = Vector2(-16, 414)
 script = ExtResource("2_i3qfx")
 e_icon = NodePath("../CanvasLayer/TextureRect")
 save_label = NodePath("../CanvasLayer/Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -399)
+position = Vector2(11, -399)
 shape = SubResource("CapsuleShape2D_3ftue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -402)
+position = Vector2(-8, 16)
 shape = SubResource("CapsuleShape2D_38c4i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

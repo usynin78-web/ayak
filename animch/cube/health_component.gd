@@ -1,52 +1,40 @@
 extends Node
 
-# Сообщает интерфейсу, что здоровье изменилось.
+# Сообщает интерфейсу или другим объектам, что здоровье изменилось.
 signal health_changed(current_health: int, max_health: int)
 
-# Сообщает другим узлам, что игрок умер.
+# Сообщает, что объект умер.
 signal died
 
-# Максимальное здоровье игрока.
+# Максимальное здоровье кубика.
 @export var max_health: int = 100
 
-# Текущее здоровье игрока.
+# Текущее здоровье.
 var current_health: int
 
 
 func _ready() -> void:
-	# Загружаем HP из сохранения или используем максимум.
-	current_health = CheckpointManager.get_saved_health(max_health)
+	# Кубик всегда появляется с полным HP.
+	current_health = max_health
 
-	# Сразу отправляем сигнал, чтобы HP-бар обновился.
 	health_changed.emit(current_health, max_health)
 
 
 func take_damage(amount: int) -> void:
-	# amount — сколько урона получил игрок.
+	# Защита от некорректного урона.
 	if amount <= 0:
 		return
 
-	# Уменьшаем HP, но не даём ему уйти ниже 0.
+	# Уменьшаем HP.
 	current_health = clamp(current_health - amount, 0, max_health)
 
-	# Сообщаем интерфейсу новое значение.
 	health_changed.emit(current_health, max_health)
 
-	# Если HP закончилось — смерть.
+	print("Кубик получил ", amount, " урона. Осталось HP:", current_health)
+
 	if current_health <= 0:
 		died.emit()
 
 
-func heal(amount: int) -> void:
-	# amount — сколько HP восстановить.
-	if amount <= 0:
-		return
-
-	# Лечим, но не выше максимального здоровья.
-	current_health = clamp(current_health + amount, 0, max_health)
-
-	# Сообщаем интерфейсу новое значение.
-	health_changed.emit(current_health, max_health)
-
 func _on_health_changed(current_health: int, max_health: int) -> void:
-	pass # Replace with function body.
+	print("Кубик HP: ", current_health, "/", max_health)

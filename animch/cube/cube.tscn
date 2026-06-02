@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=3 uid="uid://cc3vjjgyt7j7s"]
+
+[ext_resource type="Texture2D" uid="uid://b47ggyyowbkw5" path="res://animch/cube/sprite-sheet.png" id="1_s4mrs"]
+[ext_resource type="Script" uid="uid://cqydff7f3yank" path="res://cube.gd" id="2_3vdu5"]
+[ext_resource type="Script" uid="uid://ey41ms4q62i5" path="res://animch/cube/health_component.gd" id="3_66o2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pibpc"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(0, 0, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro6qt"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(546, 0, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5gpo"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(364, 0, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v68i6"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(0, 369, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2wn8"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(182, 369, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp6xx"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(546, 369, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffmv7"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(182, 0, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6i5r"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(364, 369, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt1hj"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(0, 738, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21g0h"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(182, 738, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feu8q"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(364, 738, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpxk2"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(546, 738, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2vd0"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(0, 1107, 182, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4hk6m"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_pibpc")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ro6qt")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_m5gpo")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_v68i6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_j2wn8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_pp6xx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ffmv7")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_o6i5r")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bt1hj")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_21g0h")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_feu8q")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lpxk2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_q2vd0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qqya"]
+size = Vector2(91, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
+size = Vector2(70.4375, 65.125)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4hk6m")
+frame = 1
+frame_progress = 0.31992435
+speed_scale = 0.5
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["npc"]]
+script = ExtResource("2_3vdu5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-1.5, 86.5)
+shape = SubResource("RectangleShape2D_0qqya")
+
+[node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Area2D" groups=["hp"]]
+script = ExtResource("3_66o2i")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1.78125, 79.5625)
+shape = SubResource("RectangleShape2D_s4mrs")
+
+[connection signal="health_changed" from="AnimatedSprite2D/Area2D/HealthComponent" to="AnimatedSprite2D/Area2D/HealthComponent" method="_on_health_changed"]

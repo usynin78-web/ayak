@@ -16,16 +16,16 @@ height = 120.13501
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_l2a2l")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["damage", "hp"]]
 script = ExtResource("2_4kuhe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-9.999998, -471.99997)
+position = Vector2(-1.0000029, 9)
 rotation = -1.5903655
 shape = SubResource("CapsuleShape2D_7d080")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.000001, -474.99994)
+position = Vector2(-4.9999986, 9.000092)
 rotation = -1.5365303
 shape = SubResource("CapsuleShape2D_lf4hv")
 

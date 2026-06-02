@@ -34,7 +34,7 @@ disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_sjkhc")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-181, -607)
+position = Vector2(-181, -106)
 shape = SubResource("SegmentShape2D_71jsx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -56,9 +56,9 @@ rotation = -1.5733193
 shape = SubResource("RectangleShape2D_n65ub")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -471)
+position = Vector2(0, -7)
 shape = SubResource("SegmentShape2D_rqio7")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(569, -371)
+position = Vector2(569, 118)
 shape = SubResource("SegmentShape2D_sjkhc")

@@ -4,29 +4,29 @@
 [ext_resource type="Script" uid="uid://ch2angr03d6b3" path="res://UI/HP/cake.gd" id="2_fnqhu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khg8s"]
-radius = 27.906616
-height = 84.0
+radius = 37.875427
+height = 97.80851
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fnqhu"]
-radius = 29.0
-height = 76.0
+radius = 32.00561
+height = 91.99428
 
-[node name="cake" type="CharacterBody2D"]
+[node name="cake" type="CharacterBody2D" groups=["hp"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fnqhu")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["hp"]]
 position = Vector2(-9, 66)
 script = ExtResource("2_fnqhu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(21, -33.000023)
+position = Vector2(10, -68)
 rotation = -1.5557593
 shape = SubResource("CapsuleShape2D_khg8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.999999, 42)
+position = Vector2(1.0000005, -3.0000005)
 rotation = -1.5722061
 shape = SubResource("CapsuleShape2D_fnqhu")
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1iyo0wokvbke"]
+[gd_scene load_steps=11 format=3 uid="uid://d1iyo0wokvbke"]
 
 [ext_resource type="Script" uid="uid://y7ymu3ojilq3" path="res://loc/roomtest/roomtest.gd" id="1_rqio7"]
 [ext_resource type="PackedScene" uid="uid://b6eah46li8ixv" path="res://loc/roomtest/room.tscn" id="2_n65ub"]
 [ext_resource type="PackedScene" uid="uid://b8lfkrsaj8rb3" path="res://animch/c3/c3.tscn" id="2_rqio7"]
 [ext_resource type="PackedScene" uid="uid://uyosw5lg634q" path="res://UI/HP/cake.tscn" id="3_lf4hv"]
 [ext_resource type="PackedScene" uid="uid://dkimxk1bjfqin" path="res://loc/roomtest/checkpoint.tscn" id="3_sjkhc"]
+[ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="5_lxy7o"]
 [ext_resource type="PackedScene" uid="uid://cfjm7vprwitbq" path="res://UI/HP/hp.tscn" id="5_n65ub"]
 [ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="6_7d080"]
 
@@ -39,6 +40,9 @@ position = Vector2(1515, 749)
 
 [node name="cake" parent="." instance=ExtResource("3_lf4hv")]
 position = Vector2(1375, 874)
+
+[node name="Node2D" parent="." instance=ExtResource("5_lxy7o")]
+position = Vector2(364, 847)
 
 [node name="checkpoint" parent="." instance=ExtResource("3_sjkhc")]
 position = Vector2(459, 642)
