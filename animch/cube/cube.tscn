@@ -109,7 +109,7 @@ size = Vector2(91, 93)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
 size = Vector2(70.4375, 65.125)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["damageable"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4hk6m")
@@ -117,7 +117,7 @@ frame = 1
 frame_progress = 0.31992435
 speed_scale = 0.5
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["npc"]]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["damageable", "npc"]]
 script = ExtResource("2_3vdu5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
