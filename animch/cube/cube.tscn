@@ -109,7 +109,7 @@ size = Vector2(91, 93)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
 size = Vector2(70.4375, 65.125)
 
-[node name="Node2D" type="Node2D" groups=["damageable"]]
+[node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4hk6m")

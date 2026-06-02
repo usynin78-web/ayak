@@ -103,30 +103,41 @@ func _on_died() -> void:
     print("Кир умер. Движение остановлено.")
 
 
-# Временная атака для тестирования кубика.
 func _attack() -> void:
 
-    # Если Кир мёртв — атаковать нельзя.
+    print("Функция атаки вызвалась")
+
     if is_dead:
+        print("Кир мёртв")
         return
 
-    for target in get_tree().get_nodes_in_group("damageable"):
+    var targets = get_tree().get_nodes_in_group("damageable")
 
-        # Проверяем дистанцию до цели.
-        if global_position.distance_to(target.global_position) > 100:
+    print("Найдено целей:", targets.size())
+
+    for target in targets:
+
+        print("Цель:", target.name)
+
+        var distance = global_position.distance_to(target.global_position)
+
+        print("Дистанция:", distance)
+
+        if distance > 200:
+            print("Слишком далеко")
             continue
 
-        # Ищем компонент здоровья у цели.
         var hp = target.get_node_or_null("HealthComponent")
+
+        print("HP найден:", hp)
 
         if hp == null:
             continue
 
-        # Проверяем наличие метода получения урона.
         if not hp.has_method("take_damage"):
+            print("Нет метода take_damage")
             continue
 
-        # Наносим урон.
         hp.take_damage(25)
 
         print("Кир ударил кубик")
