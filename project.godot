@@ -39,6 +39,7 @@ game_over=""
 ui=""
 damage=""
 checpoint=""
+npc=""
 
 [input]
 
