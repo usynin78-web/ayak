@@ -44,6 +44,18 @@ position = Vector2(1375, 874)
 [node name="checkpoint" parent="." instance=ExtResource("3_sjkhc")]
 position = Vector2(459, 642)
 
+[node name="Node2D4" parent="." instance=ExtResource("5_lxy7o")]
+position = Vector2(749, 1066)
+
+[node name="Node2D3" parent="." instance=ExtResource("5_lxy7o")]
+position = Vector2(441, 914)
+
+[node name="Node2D2" parent="." instance=ExtResource("5_lxy7o")]
+position = Vector2(1117, 956)
+
+[node name="Node2D" parent="." instance=ExtResource("5_lxy7o")]
+position = Vector2(1443, 965)
+
 [node name="cube" parent="." instance=ExtResource("5_lxy7o")]
 position = Vector2(364, 748)
 

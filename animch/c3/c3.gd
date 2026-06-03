@@ -10,6 +10,7 @@ const ATTACK_COOLDOWN := 0.17
 @onready var sprite_back: Sprite2D = $c3b
 @onready var sprite_left: Sprite2D = $c3l
 @onready var sprite_right: Sprite2D = $c3r
+@onready var feer_marker = $Marker2D
 
 # Получаем доступ к системе здоровья игрока.
 @onready var health_component: Node = $HealthComponent
@@ -17,6 +18,8 @@ const ATTACK_COOLDOWN := 0.17
 var direction := Vector2.ZERO
 var base_scale := Vector2(1, 1)
 
+func _process(_delta: float) -> void:
+ z_index = int(feer_marker.global_position.y)
 # Проверка, мёртв ли Кир.
 # Если true — движение полностью остановится.
 var is_dead: bool = false
@@ -137,7 +140,7 @@ func _attack() -> void:
    print("Слишком далеко")
    continue
 
-  var hp = target.get_node_or_null("HealthComponent")
+  var hp = target.get_node_or_null("AnimatedSprite2D/Area2D/HealthComponent")
 
   print("HP найден:", hp)
 

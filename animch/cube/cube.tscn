@@ -107,9 +107,10 @@ animations = [{
 size = Vector2(183, 142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
-size = Vector2(101, 94)
+size = Vector2(95, 95)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["damageable"]]
+script = ExtResource("2_3vdu5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4hk6m")
@@ -117,8 +118,7 @@ frame = 1
 frame_progress = 0.31992435
 speed_scale = 0.5
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["damageable", "npc"]]
-script = ExtResource("2_3vdu5")
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 position = Vector2(-1.5, 92)
@@ -130,7 +130,10 @@ script = ExtResource("3_66o2i")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.5, 88)
+position = Vector2(-0.5, 85.5)
 shape = SubResource("RectangleShape2D_s4mrs")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 134)
 
 [connection signal="health_changed" from="AnimatedSprite2D/Area2D/HealthComponent" to="AnimatedSprite2D/Area2D/HealthComponent" method="_on_health_changed"]
