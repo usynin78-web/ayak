@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7v4otfdl3i36"]
+
+[ext_resource type="Script" uid="uid://dul75pbc5bqe0" path="res://UI/damage_number.gd" id="1_atgbl"]
+[ext_resource type="FontFile" uid="uid://dweb64uxlrww2" path="res://font/Metal_Mania/MetalMania-Regular.ttf" id="2_uadh0"]
+
+[node name="DamageNumber" type="Node2D"]
+script = ExtResource("1_atgbl")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.62592906, 0.26861903, 0.20694682, 1)
+theme_override_colors/font_outline_color = Color(0.102756985, 0.0005449589, 0.00033722058, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_uadh0")
+theme_override_font_sizes/font_size = 64
