@@ -3,12 +3,12 @@ extends Node2D
 @onready var health_component = $AnimatedSprite2D/Area2D/HealthComponent
 @onready var feer_marker = $Marker2D
 
+func _process(_delta: float) -> void:
+ z_index = int(feer_marker.global_position.y)
+
 func _ready() -> void:
  health_component.health_changed.connect(_on_health_changed)
  health_component.died.connect(_on_died)
-
-func _process(_delta: float) -> void:
- z_index = int(feer_marker.global_position.y)
 
 func _on_health_changed(current: int, max_hp: int, damage_taken: int) -> void:
  print("Кубик HP:", current, "/", max_hp)

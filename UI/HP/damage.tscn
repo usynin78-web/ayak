@@ -29,5 +29,8 @@ position = Vector2(-4.9999986, 9.000092)
 rotation = -1.5365303
 shape = SubResource("CapsuleShape2D_lf4hv")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 49)
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

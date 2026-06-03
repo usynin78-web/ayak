@@ -1,5 +1,10 @@
 extends Area2D
 
+@onready var feer_marker = $Marker2D
+
+func _process(_delta: float) -> void:
+ z_index = int(feer_marker.global_position.y)
+
 @export var damage: int = 25
 @export var damage_interval: float = 1.0
 

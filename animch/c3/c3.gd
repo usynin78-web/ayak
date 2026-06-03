@@ -4,7 +4,7 @@ const SPEED := 350
 const RUN_MULTIPLIER := 2
 
 # Время между ударами.
-const ATTACK_COOLDOWN := 0.17
+const ATTACK_COOLDOWN := 0.2
 
 @onready var sprite_front: Sprite2D = $c3f
 @onready var sprite_back: Sprite2D = $c3b
@@ -152,10 +152,10 @@ func _attack() -> void:
    continue
 
   var damage := randi_range(20,30)
-
-  hp.take_damage(damage)
   
   print("Кир ударил кубик")
+  hp.take_damage(damage)
+  break  
 
  # Ждём окончания кулдауна.
  await get_tree().create_timer(ATTACK_COOLDOWN).timeout

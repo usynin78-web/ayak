@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkimxk1bjfqin"]
+[gd_scene load_steps=10 format=3 uid="uid://dkimxk1bjfqin"]
 
+[ext_resource type="Script" uid="uid://d2u7fiy1fma88" path="res://loc/roomtest/checkpoint.gd" id="1_510ut"]
 [ext_resource type="Texture2D" uid="uid://c0h1puhfm6l4x" path="res://objects/Без названия94_20260324093411.webp" id="1_q30nc"]
 [ext_resource type="Script" uid="uid://856ea7t4jqy6" path="res://loc/roomtest/cubearea.gd" id="2_i3qfx"]
 [ext_resource type="Texture2D" uid="uid://dpldflqa5dqn5" path="res://Gameplay object button/Ebutton.svg" id="3_38c4i"]
@@ -22,6 +23,7 @@ font = ExtResource("4_q30nc")
 font_size = 61
 
 [node name="checkpoint" type="CharacterBody2D"]
+script = ExtResource("1_510ut")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q30nc")
@@ -39,6 +41,9 @@ shape = SubResource("CapsuleShape2D_3ftue")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, 16)
 shape = SubResource("CapsuleShape2D_38c4i")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 175)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

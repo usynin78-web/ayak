@@ -3,7 +3,7 @@ extends Node2D
 @onready var label: Label = $Label
 
 func _process(_delta: float) -> void:
- z_index = 500
+ z_index = 4000
 
 func setup(amount: int) -> void:
     label.text = "-" + str(amount)
