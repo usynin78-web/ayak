@@ -45,7 +45,7 @@ position = Vector2(1375, 874)
 position = Vector2(459, 642)
 
 [node name="cube" parent="." instance=ExtResource("5_lxy7o")]
-position = Vector2(364, 847)
+position = Vector2(364, 748)
 
 [node name="c3" parent="." instance=ExtResource("2_rqio7")]
 position = Vector2(982.00006, 584.00006)

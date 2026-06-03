@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7d080"]
 radius = 19.980713
-height = 100.05636
+height = 144.43355
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3ot0"]
 atlas = ExtResource("6_unj4r")
