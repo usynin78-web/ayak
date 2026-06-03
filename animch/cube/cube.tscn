@@ -104,7 +104,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qqya"]
-size = Vector2(150, 142)
+size = Vector2(183, 142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
 size = Vector2(101, 94)
@@ -121,7 +121,7 @@ speed_scale = 0.5
 script = ExtResource("2_3vdu5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(0, 92)
+position = Vector2(-1.5, 92)
 shape = SubResource("RectangleShape2D_0qqya")
 
 [node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Area2D" groups=["hp"]]

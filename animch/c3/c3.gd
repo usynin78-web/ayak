@@ -4,7 +4,7 @@ const SPEED := 350
 const RUN_MULTIPLIER := 2
 
 # Время между ударами.
-const ATTACK_COOLDOWN := 0.2
+const ATTACK_COOLDOWN := 0.17
 
 @onready var sprite_front: Sprite2D = $c3f
 @onready var sprite_back: Sprite2D = $c3b
@@ -133,7 +133,7 @@ func _attack() -> void:
 
   print("Дистанция:", distance)
 
-  if distance > 200:
+  if distance > 250:
    print("Слишком далеко")
    continue
 
@@ -148,8 +148,10 @@ func _attack() -> void:
    print("Нет метода take_damage")
    continue
 
-  hp.take_damage(25)
+  var damage := randi_range(20,30)
 
+  hp.take_damage(damage)
+  
   print("Кир ударил кубик")
 
  # Ждём окончания кулдауна.

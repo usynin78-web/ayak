@@ -7,7 +7,7 @@ func _ready() -> void:
  health_component.died.connect(_on_died)
 
 
-func _on_health_changed(current: int, max_hp: int) -> void:
+func _on_health_changed(current: int, max_hp: int, damage_taken: int) -> void:
  print("Кубик HP:", current, "/", max_hp)
 
  # Эффект получения удара.
@@ -20,7 +20,7 @@ func _on_health_changed(current: int, max_hp: int) -> void:
 
  get_tree().current_scene.add_child(damage)
 
- damage.setup(25)
+ damage.setup(damage_taken)
 
 
 func hit_effect() -> void:
@@ -52,4 +52,4 @@ func hit_effect() -> void:
 
 func _on_died() -> void:
  print("Кубик погиб")
- get_parent().queue_free()
+ get_parent().get_parent().queue_free()
