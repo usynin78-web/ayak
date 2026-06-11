@@ -136,7 +136,7 @@ func _attack() -> void:
 
   print("Дистанция:", distance)
 
-  if distance > 250:
+  if distance > 230:
    print("Слишком далеко")
    continue
 

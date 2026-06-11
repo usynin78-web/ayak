@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b8lfkrsaj8rb3"]
+[gd_scene format=3 uid="uid://b8lfkrsaj8rb3"]
 
 [ext_resource type="Texture2D" uid="uid://c3qtvoy7awv3v" path="res://animch/пустышки всех персонажей/1748537157153.png" id="1_i6o50"]
 [ext_resource type="Script" uid="uid://bf41rw8tvv2dh" path="res://animch/c3/c3.gd" id="1_jeufa"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cy1quoywrcnyq" path="res://animch/c3/health_component.gd" id="7_m3ot0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7d080"]
-radius = 35.52658
+radius = 17.78717
 height = 144.43355
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3ot0"]
@@ -228,42 +228,42 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="c3" type="CharacterBody2D" groups=["player"]]
+[node name="c3" type="CharacterBody2D" unique_id=762489846 groups=["player"]]
 scale = Vector2(0.9, 0.9)
 script = ExtResource("1_jeufa")
 
-[node name="c3b" type="Sprite2D" parent="."]
+[node name="c3b" type="Sprite2D" parent="." unique_id=1224589245]
 texture = ExtResource("1_i6o50")
 
-[node name="c3l" type="Sprite2D" parent="."]
+[node name="c3l" type="Sprite2D" parent="." unique_id=275578070]
 texture = ExtResource("2_jeufa")
 
-[node name="c3f" type="Sprite2D" parent="."]
+[node name="c3f" type="Sprite2D" parent="." unique_id=530774976]
 texture = ExtResource("3_unj4r")
 
-[node name="c3r" type="Sprite2D" parent="."]
+[node name="c3r" type="Sprite2D" parent="." unique_id=986072611]
 texture = ExtResource("4_m3ot0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.1111109, 255.55557)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731247473]
+position = Vector2(2.2222223, 267.77777)
 rotation = 4.7166853
 shape = SubResource("CapsuleShape2D_7d080")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2064754483]
 zoom = Vector2(0.7, 0.7)
 process_callback = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2027471123]
 position = Vector2(121.111115, -276.66666)
 rotation = 0.21962346
 sprite_frames = SubResource("SpriteFrames_j0jag")
 frame = 30
 frame_progress = 0.51979154
 
-[node name="HealthComponent" type="Node" parent="." groups=["hp"]]
+[node name="HealthComponent" type="Node" parent="." unique_id=1173980121 groups=["hp"]]
 script = ExtResource("7_m3ot0")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1037836085]
 position = Vector2(0, 273.33334)
 
 [connection signal="health_changed" from="HealthComponent" to="HealthComponent" method="_on_health_changed"]

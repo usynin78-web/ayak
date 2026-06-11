@@ -104,7 +104,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qqya"]
-size = Vector2(183, 142)
+size = Vector2(134, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
 size = Vector2(95, 95)
@@ -121,7 +121,7 @@ speed_scale = 0.5
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(-1.5, 92)
+position = Vector2(-1, 87)
 shape = SubResource("RectangleShape2D_0qqya")
 
 [node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Area2D" groups=["hp"]]
