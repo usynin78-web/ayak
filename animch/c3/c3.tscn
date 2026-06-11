@@ -245,7 +245,7 @@ texture = ExtResource("3_unj4r")
 texture = ExtResource("4_m3ot0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731247473]
-position = Vector2(2.2222223, 267.77777)
+position = Vector2(-5.555555, 265.55557)
 rotation = 4.7166853
 shape = SubResource("CapsuleShape2D_7d080")
 
