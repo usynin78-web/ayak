@@ -5,6 +5,8 @@ const RUN_MULTIPLIER := 2
 
 # Время между ударами.
 const ATTACK_COOLDOWN := 0.2
+const ATTACK_RANGE := 230.0
+const ATTACK_HALF_WIDTH := 90.0
 
 @onready var sprite_front: Sprite2D = $c3f
 @onready var sprite_back: Sprite2D = $c3b
@@ -16,6 +18,7 @@ const ATTACK_COOLDOWN := 0.2
 @onready var health_component: Node = $HealthComponent
 
 var direction := Vector2.ZERO
+var facing_direction := Vector2.DOWN
 var base_scale := Vector2(1, 1)
 
 func _process(_delta: float) -> void:
@@ -70,13 +73,17 @@ func _physics_process(_delta: float) -> void:
 
   if abs(direction.x) > abs(direction.y):
    if direction.x > 0:
+    facing_direction = Vector2.RIGHT
     sprite_right.visible = true
    else:
+    facing_direction = Vector2.LEFT
     sprite_left.visible = true
   else:
    if direction.y > 0:
+    facing_direction = Vector2.DOWN
     sprite_front.visible = true
    else:
+    facing_direction = Vector2.UP
     sprite_back.visible = true
 
  update_perspective()
@@ -128,37 +135,86 @@ func _attack() -> void:
 
  print("Найдено целей:", targets.size())
 
- for target in targets:
+ var target = _find_attack_target(targets)
 
-  print("Цель:", target.name)
-
-  var distance = global_position.distance_to(target.global_position)
-
-  print("Дистанция:", distance)
-
-  if distance > 230:
-   print("Слишком далеко")
-   continue
-
+ if target != null:
   var hp = target.get_node_or_null("AnimatedSprite2D/Area2D/HealthComponent")
 
+  print("Выбранная цель:", target.name)
   print("HP найден:", hp)
 
-  if hp == null:
-   continue
+  if hp != null and hp.has_method("take_damage"):
+   var damage := randi_range(20, 30)
 
-  if not hp.has_method("take_damage"):
+   print("Кир ударил кубик")
+   hp.take_damage(damage)
+  elif hp == null:
+   print("HP не найден")
+  else:
    print("Нет метода take_damage")
-   continue
-
-  var damage := randi_range(20,30)
-  
-  print("Кир ударил кубик")
-  hp.take_damage(damage)
-  break  
+ else:
+  print("Нет цели в зоне удара")
 
  # Ждём окончания кулдауна.
  await get_tree().create_timer(ATTACK_COOLDOWN).timeout
 
  # Разрешаем следующую атаку.
  can_attack = true
+
+
+func _find_attack_target(targets: Array) -> Node2D:
+ var attack_origin := feer_marker.global_position
+ var attack_direction := facing_direction.normalized()
+ var side_direction := Vector2(-attack_direction.y, attack_direction.x)
+ var best_target: Node2D = null
+ var best_score := INF
+
+ for target in targets:
+  if not (target is Node2D):
+   continue
+
+  var target_node := target as Node2D
+  var hp = target_node.get_node_or_null("AnimatedSprite2D/Area2D/HealthComponent")
+
+  if hp == null or not hp.has_method("take_damage"):
+   print("Цель без HealthComponent или take_damage:", target_node.name)
+   continue
+
+  var target_position := _get_target_aim_position(target_node)
+  var to_target := target_position - attack_origin
+  var forward_distance := to_target.dot(attack_direction)
+  var side_distance := abs(to_target.dot(side_direction))
+
+  print("Цель:", target_node.name)
+  print("Вперёд:", forward_distance, " Вбок:", side_distance)
+
+  if forward_distance < 0.0:
+   print("Цель позади")
+   continue
+
+  if forward_distance > ATTACK_RANGE:
+   print("Слишком далеко")
+   continue
+
+  if side_distance > ATTACK_HALF_WIDTH:
+   print("Слишком далеко сбоку")
+   continue
+
+  # Главный критерий — насколько цель лежит на линии удара. Дистанция вперёд
+  # используется вторым весом, чтобы при равном направлении выбрать ближнего врага.
+  var score := side_distance + forward_distance * 0.15
+
+  if score < best_score:
+   best_score = score
+   best_target = target_node
+
+ return best_target
+
+
+func _get_target_aim_position(target: Node2D) -> Vector2:
+ var target_marker := target.get_node_or_null("Marker2D") as Node2D
+
+ if target_marker != null:
+  return target_marker.global_position
+
+ return target.global_position
