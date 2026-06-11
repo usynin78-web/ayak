@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1iyo0wokvbke"]
+[gd_scene format=3 uid="uid://d1iyo0wokvbke"]
 
 [ext_resource type="Script" uid="uid://y7ymu3ojilq3" path="res://loc/roomtest/roomtest.gd" id="1_rqio7"]
 [ext_resource type="PackedScene" uid="uid://b6eah46li8ixv" path="res://loc/roomtest/room.tscn" id="2_n65ub"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="5_lxy7o"]
 [ext_resource type="PackedScene" uid="uid://cfjm7vprwitbq" path="res://UI/HP/hp.tscn" id="5_n65ub"]
 [ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="6_7d080"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lxy7o"]
+load_path = "res://.godot/imported/Без названия42_20251123133006.webp-be6baab2759704e98af25b4fb1dc279a.ctex"
 
 [sub_resource type="Animation" id="Animation_sjkhc"]
 resource_name = "fade_out"
@@ -29,46 +32,47 @@ _data = {
 &"fade_out": SubResource("Animation_sjkhc")
 }
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D2" type="Node2D" unique_id=1507650962]
 script = ExtResource("1_rqio7")
 
-[node name="room" parent="." instance=ExtResource("2_n65ub")]
+[node name="room" parent="." unique_id=1821550512 instance=ExtResource("2_n65ub")]
 position = Vector2(988, 587)
+texture = SubResource("CompressedTexture2D_lxy7o")
 
-[node name="damage" parent="." instance=ExtResource("6_7d080")]
+[node name="damage" parent="." unique_id=56531574 instance=ExtResource("6_7d080")]
 position = Vector2(1515, 749)
 
-[node name="cake" parent="." instance=ExtResource("3_lf4hv")]
+[node name="cake" parent="." unique_id=497666209 instance=ExtResource("3_lf4hv")]
 position = Vector2(1375, 874)
 
-[node name="checkpoint" parent="." instance=ExtResource("3_sjkhc")]
+[node name="checkpoint" parent="." unique_id=611511242 instance=ExtResource("3_sjkhc")]
 position = Vector2(459, 642)
 
-[node name="Node2D4" parent="." instance=ExtResource("5_lxy7o")]
+[node name="Node2D4" parent="." unique_id=2029861013 instance=ExtResource("5_lxy7o")]
 position = Vector2(749, 1066)
 
-[node name="Node2D3" parent="." instance=ExtResource("5_lxy7o")]
+[node name="Node2D3" parent="." unique_id=503512924 instance=ExtResource("5_lxy7o")]
 position = Vector2(441, 914)
 
-[node name="Node2D2" parent="." instance=ExtResource("5_lxy7o")]
+[node name="Node2D2" parent="." unique_id=1792145785 instance=ExtResource("5_lxy7o")]
 position = Vector2(1117, 956)
 
-[node name="Node2D" parent="." instance=ExtResource("5_lxy7o")]
+[node name="Node2D" parent="." unique_id=258567729 instance=ExtResource("5_lxy7o")]
 position = Vector2(1443, 965)
 
-[node name="cube" parent="." instance=ExtResource("5_lxy7o")]
+[node name="cube" parent="." unique_id=879071891 instance=ExtResource("5_lxy7o")]
 position = Vector2(364, 748)
 
-[node name="c3" parent="." instance=ExtResource("2_rqio7")]
+[node name="c3" parent="." unique_id=2008111130 instance=ExtResource("2_rqio7")]
 position = Vector2(982.00006, 584.00006)
 
-[node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
+[node name="UI" type="CanvasLayer" parent="." unique_id=504048387 groups=["ui"]]
 
-[node name="hp" parent="UI" instance=ExtResource("5_n65ub")]
+[node name="hp" parent="UI" unique_id=173979953 instance=ExtResource("5_n65ub")]
 
-[node name="FadeLayer" type="CanvasLayer" parent="."]
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=30316155]
 
-[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+[node name="ColorRect" type="ColorRect" parent="FadeLayer" unique_id=573274141]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -81,10 +85,8 @@ grow_vertical = 2
 accessibility_name = "anim"
 color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer" unique_id=567192228]
 root_node = NodePath("../ColorRect")
-libraries = {
-&"": SubResource("AnimationLibrary_7d080")
-}
+libraries/ = SubResource("AnimationLibrary_7d080")
 
 [connection signal="animation_finished" from="FadeLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
