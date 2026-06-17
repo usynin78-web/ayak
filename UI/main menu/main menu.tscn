@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvlaetq501c7o"]
+[gd_scene format=3 uid="uid://bvlaetq501c7o"]
 
 [ext_resource type="Texture2D" uid="uid://co8cm2jw0eipq" path="res://UI/main menu/1724063958523.png" id="1_eje8c"]
 [ext_resource type="Script" uid="uid://cfmamum7iu8tr" path="res://UI/main menu/main_menu.gd" id="1_x1d3d"]
 [ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="3_3ul0u"]
-[ext_resource type="Texture2D" uid="uid://oloxggsi0hxd" path="res://UI/main menu/loading/Texture Pack 4.png" id="4_3ul0u"]
+[ext_resource type="Texture2D" uid="uid://k8bo7ngxjn24" path="res://UI/main menu/loading/Texture Pack 5.png" id="4_3ul0u"]
 
 [sub_resource type="Animation" id="Animation_yjc5i"]
 length = 0.001
@@ -54,27 +54,27 @@ Button/fonts/font = ExtResource("3_3ul0u")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmwvm"]
 atlas = ExtResource("4_3ul0u")
-region = Rect2(0, 2160, 1920, 1080)
+region = Rect2(0, 2164, 1923, 1082)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc5i"]
 atlas = ExtResource("4_3ul0u")
-region = Rect2(1920, 2160, 1920, 1080)
+region = Rect2(1923, 2164, 1923, 1082)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qa3qe"]
 atlas = ExtResource("4_3ul0u")
-region = Rect2(0, 1080, 1920, 1080)
+region = Rect2(0, 1082, 1923, 1082)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tj3pm"]
 atlas = ExtResource("4_3ul0u")
-region = Rect2(1920, 1080, 1920, 1080)
+region = Rect2(1923, 1082, 1923, 1082)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pgwg"]
 atlas = ExtResource("4_3ul0u")
-region = Rect2(0, 0, 1920, 1080)
+region = Rect2(0, 0, 1923, 1082)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw0id"]
 atlas = ExtResource("4_3ul0u")
-region = Rect2(1920, 0, 1920, 1080)
+region = Rect2(1923, 0, 1923, 1082)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_25yhx"]
 animations = [{
@@ -102,7 +102,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=675079057]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,12 +112,10 @@ grow_vertical = 2
 accessibility_name = "main menu"
 script = ExtResource("1_x1d3d")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qa3qe")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1281925936]
+libraries/ = SubResource("AnimationLibrary_qa3qe")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=914732559]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -125,7 +123,7 @@ scale = Vector2(48.04, 27.04)
 accessibility_name = "background"
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1039214059]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -141,7 +139,7 @@ grow_vertical = 2
 accessibility_name = "are you a killer?"
 texture = ExtResource("1_eje8c")
 
-[node name="Label" type="Label" parent="TextureRect"]
+[node name="Label" type="Label" parent="TextureRect" unique_id=1773730869]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -157,7 +155,7 @@ accessibility_name = "Press any key to start"
 text = "Press any key to start"
 label_settings = SubResource("LabelSettings_tj3pm")
 
-[node name="Label2" type="Label" parent="TextureRect"]
+[node name="Label2" type="Label" parent="TextureRect" unique_id=1854023975]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -171,7 +169,7 @@ accessibility_name = "ver.0.01.01.dev"
 text = "ver.0.02.01.dev"
 label_settings = SubResource("LabelSettings_x1d3d")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=744359865]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -187,28 +185,28 @@ grow_vertical = 2
 mouse_filter = 0
 accessibility_name = "main menu"
 
-[node name="start" type="Button" parent="VBoxContainer"]
+[node name="start" type="Button" parent="VBoxContainer" unique_id=112315503]
 layout_mode = 2
 accessibility_name = "start"
 theme = SubResource("Theme_3ul0u")
 theme_type_variation = &"FlatButton"
 text = "Начать"
 
-[node name="continue" type="Button" parent="VBoxContainer"]
+[node name="continue" type="Button" parent="VBoxContainer" unique_id=1958528430]
 layout_mode = 2
 accessibility_name = "continue"
 theme = SubResource("Theme_3ul0u")
 theme_type_variation = &"FlatButton"
 text = "Продолжить"
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=1649470119]
 layout_mode = 2
 accessibility_name = "exit"
 theme = SubResource("Theme_3ul0u")
 theme_type_variation = &"FlatButton"
 text = "Выйти"
 
-[node name="loading" type="AnimatedSprite2D" parent="."]
+[node name="loading" type="AnimatedSprite2D" parent="." unique_id=914014864]
 visible = false
 position = Vector2(968, 544)
 sprite_frames = SubResource("SpriteFrames_25yhx")
