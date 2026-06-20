@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var unique_id := ""
 @onready var health_component = $AnimatedSprite2D/Area2D/HealthComponent
 @onready var feer_marker = $Marker2D
 
@@ -7,6 +8,8 @@ func _process(_delta: float) -> void:
  z_index = int(feer_marker.global_position.y)
 
 func _ready() -> void:
+ unique_id = str(get_path())
+ print(unique_id)
  health_component.health_changed.connect(_on_health_changed)
  health_component.died.connect(_on_died)
 
@@ -55,5 +58,8 @@ func hit_effect() -> void:
 
 
 func _on_died() -> void:
+ print("cube", unique_id)
+ print("словарь", CheckpointManager.removed_objects)
+ CheckpointManager.removed_objects[unique_id] = true
  print("Кубик погиб")
  queue_free()
