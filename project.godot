@@ -24,7 +24,7 @@ config/icon="uid://c3o5lxe3c52d0"
 
 [autoload]
 
-CheckpointManager="*res://save manager/checkpointmanager.gd"
+CheckpointManager="*res://save_manager/checkpointmanager.gd"
 
 [display]
 

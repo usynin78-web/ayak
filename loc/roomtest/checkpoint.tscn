@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkimxk1bjfqin"]
+[gd_scene format=3 uid="uid://dkimxk1bjfqin"]
 
 [ext_resource type="Script" uid="uid://d2u7fiy1fma88" path="res://loc/roomtest/checkpoint.gd" id="1_510ut"]
 [ext_resource type="Texture2D" uid="uid://c0h1puhfm6l4x" path="res://objects/Без названия94_20260324093411.webp" id="1_q30nc"]
@@ -22,32 +22,32 @@ font_size = 81
 font = ExtResource("4_q30nc")
 font_size = 61
 
-[node name="checkpoint" type="CharacterBody2D"]
+[node name="checkpoint" type="CharacterBody2D" unique_id=1504211689]
 script = ExtResource("1_510ut")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954272100]
 texture = ExtResource("1_q30nc")
 
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("e_icon", "save_label") groups=["checpoint"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1469944072 node_paths=PackedStringArray("e_icon", "save_label") groups=["checpoint"]]
 position = Vector2(-16, 414)
 script = ExtResource("2_i3qfx")
 e_icon = NodePath("../CanvasLayer/TextureRect")
 save_label = NodePath("../CanvasLayer/Label")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=337359114]
 position = Vector2(11, -399)
 shape = SubResource("CapsuleShape2D_3ftue")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=654112311]
 position = Vector2(-8, 16)
 shape = SubResource("CapsuleShape2D_38c4i")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=387884503]
 position = Vector2(0, 175)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1727396998]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=944834936]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -62,7 +62,7 @@ accessibility_name = "Сохранение успешно выполенено"
 text = "Сохранение успешно выполенено"
 label_settings = SubResource("LabelSettings_510ut")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1162449241]
 visible = false
 offset_left = 94.0
 offset_top = -186.0
@@ -71,7 +71,7 @@ offset_bottom = -54.0
 accessibility_name = "press to E"
 texture = ExtResource("3_38c4i")
 
-[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect" unique_id=624977813]
 layout_mode = 0
 offset_left = 103.0
 offset_top = 34.0
@@ -80,3 +80,6 @@ offset_bottom = 99.0
 accessibility_name = "save"
 text = "Сохранить"
 label_settings = SubResource("LabelSettings_q30nc")
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=507357981]
+position = Vector2(0, 173)
