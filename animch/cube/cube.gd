@@ -10,6 +10,11 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
  unique_id = str(get_path())
  print(unique_id)
+ if CheckpointManager.removed_objects.has(unique_id):
+  print("Куб уже был уничтожен:", unique_id)
+  queue_free()
+  return
+
  health_component.health_changed.connect(_on_health_changed)
  health_component.died.connect(_on_died)
 
