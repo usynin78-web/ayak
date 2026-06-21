@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://f5t3tqc3tc3l"]
+
+[ext_resource type="Script" uid="uid://bki1v52ny8iwb" path="res://setting.gd" id="1_co4yu"]
+[ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="2_14l44"]
+[ext_resource type="Theme" uid="uid://c187p45dgfqp" path="res://font/main_menu_th.tres" id="3_lt3vp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gj6yb"]
+font = ExtResource("2_14l44")
+font_size = 110
+
+[node name="Control" type="Control" unique_id=321628895]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_co4yu")
+
+[node name="Label" type="Label" parent="." unique_id=195927891]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 95.0
+offset_top = -320.0
+offset_right = 95.0
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Настройки экрана"
+label_settings = SubResource("LabelSettings_gj6yb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1896164146]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -675.0
+offset_top = -133.0
+offset_right = 698.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+accessibility_name = "main menu"
+
+[node name="windowed" type="Button" parent="VBoxContainer" unique_id=35352608]
+layout_mode = 2
+accessibility_name = "start"
+theme = ExtResource("3_lt3vp")
+theme_type_variation = &"FlatButton"
+text = "Оконный режим"
+
+[node name="fullscreen" type="Button" parent="VBoxContainer" unique_id=2012020919]
+layout_mode = 2
+accessibility_name = "continue"
+theme = ExtResource("3_lt3vp")
+theme_type_variation = &"FlatButton"
+text = "Полноэкранный"
+
+[node name="exit_to_menu" type="Button" parent="VBoxContainer" unique_id=1822451773]
+layout_mode = 2
+accessibility_name = "exit"
+theme = ExtResource("3_lt3vp")
+theme_type_variation = &"FlatButton"
+text = "Назад в меню"

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cfmamum7iu8tr" path="res://UI/main menu/main_menu.gd" id="1_x1d3d"]
 [ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="3_3ul0u"]
 [ext_resource type="Texture2D" uid="uid://k8bo7ngxjn24" path="res://UI/main menu/loading/Texture Pack 5.png" id="4_3ul0u"]
+[ext_resource type="Theme" uid="uid://c187p45dgfqp" path="res://font/main_menu_th.tres" id="4_dmwvm"]
 
 [sub_resource type="Animation" id="Animation_yjc5i"]
 length = 0.001
@@ -47,10 +48,6 @@ font_size = 44
 
 [sub_resource type="LabelSettings" id="LabelSettings_x1d3d"]
 font_size = 32
-
-[sub_resource type="Theme" id="Theme_3ul0u"]
-Button/font_sizes/font_size = 138
-Button/fonts/font = ExtResource("3_3ul0u")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmwvm"]
 atlas = ExtResource("4_3ul0u")
@@ -188,21 +185,28 @@ accessibility_name = "main menu"
 [node name="start" type="Button" parent="VBoxContainer" unique_id=112315503]
 layout_mode = 2
 accessibility_name = "start"
-theme = SubResource("Theme_3ul0u")
+theme = ExtResource("4_dmwvm")
 theme_type_variation = &"FlatButton"
 text = "Начать"
+
+[node name="setting" type="Button" parent="VBoxContainer" unique_id=1260301710]
+layout_mode = 2
+accessibility_name = "start"
+theme = ExtResource("4_dmwvm")
+theme_type_variation = &"FlatButton"
+text = "Настройки"
 
 [node name="continue" type="Button" parent="VBoxContainer" unique_id=1958528430]
 layout_mode = 2
 accessibility_name = "continue"
-theme = SubResource("Theme_3ul0u")
+theme = ExtResource("4_dmwvm")
 theme_type_variation = &"FlatButton"
 text = "Продолжить"
 
 [node name="exit" type="Button" parent="VBoxContainer" unique_id=1649470119]
 layout_mode = 2
 accessibility_name = "exit"
-theme = SubResource("Theme_3ul0u")
+theme = ExtResource("4_dmwvm")
 theme_type_variation = &"FlatButton"
 text = "Выйти"
 
