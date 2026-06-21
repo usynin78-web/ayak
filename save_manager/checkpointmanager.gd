@@ -3,7 +3,6 @@ extends Node
 var last_position: Vector2 = Vector2.ZERO
 var last_health: int = 225
 var has_checkpoint: bool = false
-
 # Список объектов, которые были уничтожены или подобраны
 var removed_objects: Dictionary = {}
 

@@ -11,8 +11,8 @@ radius = 80.0
 height = 326.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38c4i"]
-radius = 56.0
-height = 318.0
+radius = 49.999634
+height = 132.00436
 
 [sub_resource type="LabelSettings" id="LabelSettings_510ut"]
 font = ExtResource("4_q30nc")
@@ -39,7 +39,8 @@ position = Vector2(11, -399)
 shape = SubResource("CapsuleShape2D_3ftue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=654112311]
-position = Vector2(-8, 16)
+position = Vector2(-7, 123)
+rotation = -1.5704318
 shape = SubResource("CapsuleShape2D_38c4i")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=387884503]

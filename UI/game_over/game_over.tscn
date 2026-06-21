@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmgcjwdltpuys"]
+[gd_scene format=3 uid="uid://cmgcjwdltpuys"]
 
 [ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="1_8dbwb"]
 
@@ -14,7 +14,7 @@ font_size = 100
 Button/font_sizes/font_size = 80
 Button/fonts/font = ExtResource("1_8dbwb")
 
-[node name="GameOver" type="Control" groups=["game_over"]]
+[node name="GameOver" type="Control" unique_id=133037511 groups=["game_over"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,12 +22,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=721965493]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1917.0
+offset_bottom = 1082.0
+color = Color(0, 0, 0, 0.5568628)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1975559655]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,7 +44,7 @@ grow_vertical = 2
 text = "Хорошее начало"
 label_settings = SubResource("LabelSettings_4qqaj")
 
-[node name="Label" type="Label" parent="Label"]
+[node name="Label" type="Label" parent="Label" unique_id=2083561242]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -59,7 +60,7 @@ grow_vertical = 2
 text = "Жаль недолгое"
 label_settings = SubResource("LabelSettings_ru5wp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=323025654]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,21 +74,21 @@ offset_bottom = 475.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="start" type="Button" parent="VBoxContainer"]
+[node name="start" type="Button" parent="VBoxContainer" unique_id=125795489]
 layout_mode = 2
 accessibility_name = "start"
 theme = SubResource("Theme_wjdna")
 theme_type_variation = &"FlatButton"
 text = "Начать заново"
 
-[node name="start2" type="Button" parent="VBoxContainer"]
+[node name="menu" type="Button" parent="VBoxContainer" unique_id=1690512431]
 layout_mode = 2
 accessibility_name = "start"
 theme = SubResource("Theme_wjdna")
 theme_type_variation = &"FlatButton"
 text = "В главное меню"
 
-[node name="start3" type="Button" parent="VBoxContainer"]
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=1666022246]
 layout_mode = 2
 accessibility_name = "start"
 theme = SubResource("Theme_wjdna")
