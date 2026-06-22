@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f5t3tqc3tc3l"]
 
-[ext_resource type="Script" uid="uid://bki1v52ny8iwb" path="res://setting.gd" id="1_co4yu"]
+[ext_resource type="Script" uid="uid://bki1v52ny8iwb" path="res://UI/main menu/setting.gd" id="1_co4yu"]
 [ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="2_14l44"]
 [ext_resource type="Theme" uid="uid://c187p45dgfqp" path="res://font/main_menu_th.tres" id="3_lt3vp"]
 

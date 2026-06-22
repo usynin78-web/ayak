@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://y7ymu3ojilq3" path="res://loc/roomtest/roomtest.gd" id="1_rqio7"]
 [ext_resource type="PackedScene" uid="uid://b6eah46li8ixv" path="res://loc/roomtest/room.tscn" id="2_n65ub"]
 [ext_resource type="PackedScene" uid="uid://b8lfkrsaj8rb3" path="res://animch/c3/c3.tscn" id="2_rqio7"]
+[ext_resource type="Script" uid="uid://diwvg5vkk2jr1" path="res://UI/dev/debug.gd" id="5_7d080"]
 [ext_resource type="PackedScene" uid="uid://cfjm7vprwitbq" path="res://UI/HP/hp.tscn" id="5_n65ub"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lxy7o"]
@@ -41,6 +42,12 @@ position = Vector2(982.00006, 584.00006)
 [node name="UI" type="CanvasLayer" parent="." unique_id=504048387 groups=["ui"]]
 
 [node name="hp" parent="UI" unique_id=173979953 instance=ExtResource("5_n65ub")]
+
+[node name="debug" type="Label" parent="UI" unique_id=1622685198]
+offset_top = 166.0
+offset_right = 40.0
+offset_bottom = 189.0
+script = ExtResource("5_7d080")
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=30316155]
 
