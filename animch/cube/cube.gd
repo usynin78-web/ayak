@@ -1,11 +1,19 @@
 extends Node2D
 
 @export var unique_id := ""
+@export var run_speed := 90.0
+@export var run_radius := 220.0
+@export var min_wait_time := 0.2
+@export var max_wait_time := 0.8
+
 @onready var health_component = $AnimatedSprite2D/Area2D/HealthComponent
 @onready var feer_marker = $Marker2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-func _process(_delta: float) -> void:
- z_index = int(feer_marker.global_position.y)
+var start_position := Vector2.ZERO
+var target_position := Vector2.ZERO
+var wait_timer := 0.0
+
 
 func _ready() -> void:
  unique_id = str(get_path())
@@ -15,12 +23,41 @@ func _ready() -> void:
   queue_free()
   return
 
+ start_position = global_position
+ _pick_random_target()
+ sprite.play()
+
  health_component.health_changed.connect(_on_health_changed)
  health_component.died.connect(_on_died)
 
+
+func _process(delta: float) -> void:
+ z_index = int(feer_marker.global_position.y)
+ _run_randomly(delta)
+
+
+func _run_randomly(delta: float) -> void:
+ if wait_timer > 0.0:
+  wait_timer -= delta
+  return
+
+ var direction := target_position - global_position
+ if direction.length() <= run_speed * delta:
+  global_position = target_position
+  wait_timer = randf_range(min_wait_time, max_wait_time)
+  _pick_random_target()
+  return
+
+ global_position += direction.normalized() * run_speed * delta
+ sprite.flip_h = direction.x < 0.0
+
+
+func _pick_random_target() -> void:
+ target_position = start_position + Vector2.RIGHT.rotated(randf() * TAU) * randf_range(0.0, run_radius)
+
+
 func _on_health_changed(current: int, max_hp: int, damage_taken: int) -> void:
  print("Кубик HP:", current, "/", max_hp)
-
 
  # Эффект получения удара.
  hit_effect()
@@ -36,12 +73,6 @@ func _on_health_changed(current: int, max_hp: int, damage_taken: int) -> void:
 
 
 func hit_effect() -> void:
- # Получаем спрайт кубика.
- var sprite := get_parent() as AnimatedSprite2D
-
- if sprite == null:
-  return
-
  # Запоминаем исходную позицию.
  var original_position := sprite.position
 
@@ -53,13 +84,14 @@ func hit_effect() -> void:
 
  var tween := create_tween()
 
- # Отталкиваем спрайт.
+ # Отталкиваем спрайт и возвращаем его назад.
  tween.tween_property(
   sprite,
   "position",
   original_position + random_offset,
   0.05
  )
+ tween.tween_property(sprite, "position", original_position, 0.08)
 
 
 func _on_died() -> void:
