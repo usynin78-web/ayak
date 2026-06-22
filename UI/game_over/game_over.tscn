@@ -87,10 +87,3 @@ accessibility_name = "start"
 theme = SubResource("Theme_wjdna")
 theme_type_variation = &"FlatButton"
 text = "В главное меню"
-
-[node name="exit" type="Button" parent="VBoxContainer" unique_id=1666022246]
-layout_mode = 2
-accessibility_name = "start"
-theme = SubResource("Theme_wjdna")
-theme_type_variation = &"FlatButton"
-text = "Выход из игры"

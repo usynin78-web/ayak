@@ -189,19 +189,19 @@ theme = ExtResource("4_dmwvm")
 theme_type_variation = &"FlatButton"
 text = "Начать"
 
-[node name="setting" type="Button" parent="VBoxContainer" unique_id=1260301710]
-layout_mode = 2
-accessibility_name = "start"
-theme = ExtResource("4_dmwvm")
-theme_type_variation = &"FlatButton"
-text = "Настройки"
-
 [node name="continue" type="Button" parent="VBoxContainer" unique_id=1958528430]
 layout_mode = 2
 accessibility_name = "continue"
 theme = ExtResource("4_dmwvm")
 theme_type_variation = &"FlatButton"
 text = "Продолжить"
+
+[node name="setting" type="Button" parent="VBoxContainer" unique_id=1260301710]
+layout_mode = 2
+accessibility_name = "start"
+theme = ExtResource("4_dmwvm")
+theme_type_variation = &"FlatButton"
+text = "Настройки"
 
 [node name="exit" type="Button" parent="VBoxContainer" unique_id=1649470119]
 layout_mode = 2

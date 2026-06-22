@@ -3,11 +3,7 @@
 [ext_resource type="Script" uid="uid://y7ymu3ojilq3" path="res://loc/roomtest/roomtest.gd" id="1_rqio7"]
 [ext_resource type="PackedScene" uid="uid://b6eah46li8ixv" path="res://loc/roomtest/room.tscn" id="2_n65ub"]
 [ext_resource type="PackedScene" uid="uid://b8lfkrsaj8rb3" path="res://animch/c3/c3.tscn" id="2_rqio7"]
-[ext_resource type="PackedScene" uid="uid://uyosw5lg634q" path="res://UI/HP/cake.tscn" id="3_lf4hv"]
-[ext_resource type="PackedScene" uid="uid://dkimxk1bjfqin" path="res://loc/roomtest/checkpoint.tscn" id="3_sjkhc"]
-[ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="5_lxy7o"]
 [ext_resource type="PackedScene" uid="uid://cfjm7vprwitbq" path="res://UI/HP/hp.tscn" id="5_n65ub"]
-[ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="6_7d080"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lxy7o"]
 load_path = "res://.godot/imported/Без названия42_20251123133006.webp-be6baab2759704e98af25b4fb1dc279a.ctex"
@@ -38,35 +34,6 @@ script = ExtResource("1_rqio7")
 [node name="room" parent="." unique_id=1821550512 instance=ExtResource("2_n65ub")]
 position = Vector2(988, 587)
 texture = SubResource("CompressedTexture2D_lxy7o")
-
-[node name="damage" parent="." unique_id=56531574 instance=ExtResource("6_7d080")]
-position = Vector2(1515, 749)
-
-[node name="cake" parent="." unique_id=497666209 instance=ExtResource("3_lf4hv")]
-position = Vector2(1375, 874)
-
-[node name="checkpoint2" parent="." unique_id=1504211689 instance=ExtResource("3_sjkhc")]
-position = Vector2(1691, 869)
-rotation = 0.07728782
-scale = Vector2(-0.96000004, 1)
-
-[node name="checkpoint" parent="." unique_id=611511242 instance=ExtResource("3_sjkhc")]
-position = Vector2(459, 642)
-
-[node name="Node2D4" parent="." unique_id=2029861013 instance=ExtResource("5_lxy7o")]
-position = Vector2(749, 1066)
-
-[node name="Node2D3" parent="." unique_id=503512924 instance=ExtResource("5_lxy7o")]
-position = Vector2(441, 914)
-
-[node name="Node2D2" parent="." unique_id=1792145785 instance=ExtResource("5_lxy7o")]
-position = Vector2(1117, 956)
-
-[node name="Node2D" parent="." unique_id=258567729 instance=ExtResource("5_lxy7o")]
-position = Vector2(1443, 965)
-
-[node name="cube" parent="." unique_id=879071891 instance=ExtResource("5_lxy7o")]
-position = Vector2(364, 748)
 
 [node name="c3" parent="." unique_id=2008111130 instance=ExtResource("2_rqio7")]
 position = Vector2(982.00006, 584.00006)

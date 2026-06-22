@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6eah46li8ixv"]
+[gd_scene format=3 uid="uid://b6eah46li8ixv"]
 
 [ext_resource type="Texture2D" uid="uid://cmpcfdgabfrua" path="res://loc/roomtest/Без названия42_20251123133006.webp" id="1_frsc0"]
 [ext_resource type="Texture2D" uid="uid://eo0kncvs3yrg" path="res://egg/0.0.02.png" id="1_ucfoa"]
+[ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="3_c4af3"]
+[ext_resource type="PackedScene" uid="uid://uyosw5lg634q" path="res://UI/HP/cake.tscn" id="4_x0lll"]
+[ext_resource type="PackedScene" uid="uid://dkimxk1bjfqin" path="res://loc/roomtest/checkpoint.tscn" id="5_f1jrm"]
+[ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="6_xm4o8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjkhc"]
 rough = true
@@ -21,44 +25,68 @@ b = Vector2(-587, 142)
 a = Vector2(693, 736)
 b = Vector2(21, 11)
 
-[node name="room" type="Sprite2D"]
+[node name="room" type="Sprite2D" unique_id=551578305]
 texture = ExtResource("1_frsc0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=817308171]
 position = Vector2(386, -243.99997)
 scale = Vector2(0.215, 0.215)
 texture = ExtResource("1_ucfoa")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1381902062]
 disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_sjkhc")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1517360843]
 position = Vector2(-181, -106)
 shape = SubResource("SegmentShape2D_71jsx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1692039795]
 position = Vector2(15, 980)
 shape = SubResource("RectangleShape2D_n65ub")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1064657433]
 position = Vector2(-15, -726.75)
 shape = SubResource("RectangleShape2D_n65ub")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=707483350]
 position = Vector2(-1385, 161)
 rotation = -1.5733193
 shape = SubResource("RectangleShape2D_n65ub")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1013815504]
 position = Vector2(1384, 154)
 rotation = -1.5733193
 shape = SubResource("RectangleShape2D_n65ub")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1643899645]
 position = Vector2(0, -7)
 shape = SubResource("SegmentShape2D_rqio7")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=824424346]
 position = Vector2(569, 118)
 shape = SubResource("SegmentShape2D_sjkhc")
+
+[node name="damage" parent="." unique_id=1121011096 instance=ExtResource("3_c4af3")]
+position = Vector2(501, 156)
+
+[node name="cake" parent="." unique_id=1035904099 instance=ExtResource("4_x0lll")]
+position = Vector2(389, 289)
+
+[node name="checkpoint" parent="." unique_id=1504211689 instance=ExtResource("5_f1jrm")]
+position = Vector2(-527, 57)
+
+[node name="Node2D4" parent="." unique_id=20402418 instance=ExtResource("6_xm4o8")]
+position = Vector2(-350, 435)
+
+[node name="Node2D3" parent="." unique_id=541011024 instance=ExtResource("6_xm4o8")]
+position = Vector2(-658, 283)
+
+[node name="Node2D2" parent="." unique_id=324566262 instance=ExtResource("6_xm4o8")]
+position = Vector2(382, 384)
+
+[node name="Node2D" parent="." unique_id=1769408280 instance=ExtResource("6_xm4o8")]
+position = Vector2(708, 393)
+
+[node name="cube" parent="." unique_id=907973123 instance=ExtResource("6_xm4o8")]
+position = Vector2(26, 318)
