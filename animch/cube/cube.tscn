@@ -109,7 +109,7 @@ size = Vector2(134, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
 size = Vector2(95, 95)
 
-[node name="Node2D" type="Node2D" groups=["damageable"]]
+[node name="cube" type="CharacterBody2D" groups=["damageable"]]
 script = ExtResource("2_3vdu5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -127,9 +127,7 @@ shape = SubResource("RectangleShape2D_0qqya")
 [node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Area2D" groups=["hp"]]
 script = ExtResource("3_66o2i")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 85.5)
 shape = SubResource("RectangleShape2D_s4mrs")
 

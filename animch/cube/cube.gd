@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var unique_id := ""
 @onready var health_component = $AnimatedSprite2D/Area2D/HealthComponent
@@ -8,6 +8,9 @@ func _process(_delta: float) -> void:
  z_index = int(feer_marker.global_position.y)
 
 func _ready() -> void:
+ if not is_in_group("damageable"):
+  add_to_group("damageable")
+
  unique_id = str(get_path())
  print(unique_id)
  if CheckpointManager.removed_objects.has(unique_id):
@@ -37,7 +40,7 @@ func _on_health_changed(current: int, max_hp: int, damage_taken: int) -> void:
 
 func hit_effect() -> void:
  # Получаем спрайт кубика.
- var sprite := get_parent() as AnimatedSprite2D
+ var sprite := $AnimatedSprite2D as AnimatedSprite2D
 
  if sprite == null:
   return
