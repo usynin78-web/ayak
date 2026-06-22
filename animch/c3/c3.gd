@@ -157,7 +157,7 @@ func _attack() -> void:
 			print("Слишком далеко")
 			continue
 
-		var hp = target.get_node_or_null("AnimatedSprite2D/Area2D/HealthComponent")
+		var hp = target.get_node_or_null("CharacterBody2D/AnimatedSprite2D/Area2D/HealthComponent")
 
 		print("HP найден:", hp)
 
