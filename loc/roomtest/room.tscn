@@ -92,3 +92,4 @@ position = Vector2(708, 393)
 
 [node name="cube" parent="." unique_id=907973123 instance=ExtResource("6_xm4o8")]
 position = Vector2(26, 318)
+max_wait_time = 2.0
