@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cc3vjjgyt7j7s"]
+[gd_scene format=3 uid="uid://cc3vjjgyt7j7s"]
 
 [ext_resource type="Texture2D" uid="uid://b47ggyyowbkw5" path="res://animch/cube/sprite-sheet.png" id="1_s4mrs"]
 [ext_resource type="Script" uid="uid://cqydff7f3yank" path="res://animch/cube/cube.gd" id="2_3vdu5"]
@@ -109,31 +109,32 @@ size = Vector2(134, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
 size = Vector2(95, 95)
 
-[node name="Node2D" type="Node2D" groups=["damageable"]]
+[node name="Node2D" type="Node2D" unique_id=1064689745 groups=["damageable"]]
 script = ExtResource("2_3vdu5")
+unique_id = "смерть в нищете"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=225245010]
 sprite_frames = SubResource("SpriteFrames_4hk6m")
 frame = 1
 frame_progress = 0.31992435
 speed_scale = 0.5
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=472840017]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1416737506]
 position = Vector2(-1, 87)
 shape = SubResource("RectangleShape2D_0qqya")
 
-[node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Area2D" groups=["hp"]]
+[node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Area2D" unique_id=230731996 groups=["hp"]]
 script = ExtResource("3_66o2i")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1474060323]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1928757330]
 position = Vector2(-0.5, 85.5)
 shape = SubResource("RectangleShape2D_s4mrs")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=155369235]
 position = Vector2(0, 134)
 
 [connection signal="health_changed" from="AnimatedSprite2D/Area2D/HealthComponent" to="AnimatedSprite2D/Area2D/HealthComponent" method="_on_health_changed"]

@@ -3,8 +3,8 @@ extends Node2D
 @export var unique_id := ""
 @export var run_speed := 90.0
 @export var run_radius := 220.0
-@export var min_wait_time := 0.2
-@export var max_wait_time := 0.8
+@export var min_wait_time := 1.0
+@export var max_wait_time := 4.0
 
 @onready var health_component = $AnimatedSprite2D/Area2D/HealthComponent
 @onready var feer_marker = $Marker2D
@@ -45,13 +45,22 @@ func _process(delta: float) -> void:
 func _run_randomly(delta: float) -> void:
  if wait_timer > 0.0:
   wait_timer -= delta
+
+  # Когда ожидание закончилось,
+  # только тогда выбираем новую цель.
+  if wait_timer <= 0.0:
+   _pick_random_target()
+
   return
 
  var direction := target_position - global_position
+
  if direction.length() <= run_speed * delta:
   global_position = target_position
+
+  # Начинаем ожидание.
   wait_timer = randf_range(min_wait_time, max_wait_time)
-  _pick_random_target()
+
   return
 
  global_position += direction.normalized() * run_speed * delta
