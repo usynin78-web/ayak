@@ -4,7 +4,7 @@ extends Node2D
 @export var run_speed := 90.0
 @export var run_radius := 220.0
 @export var min_wait_time := 1.0
-@export var max_wait_time := 4.0
+@export var max_wait_time := 3.0
 
 @onready var health_component = $AnimatedSprite2D/Area2D/HealthComponent
 @onready var feer_marker = $Marker2D
