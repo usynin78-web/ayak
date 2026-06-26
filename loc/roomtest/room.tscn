@@ -26,6 +26,11 @@ b = Vector2(-587, 142)
 a = Vector2(693, 736)
 b = Vector2(21, 11)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f1jrm"]
+vertices = PackedVector2Array(-543.72656, 489.57813, -721.7578, 706.0469, -1085.7969, 710.71094, -967.0469, 574.2422, -797.8828, 438.70313, -422.46094, 283.1797, 148.61719, 483.3672, 221.38281, 617.35156, -41.8125, 623.02344, -178.54688, 305.89844, -216.39063, 647.6719, -172.61719, 286.35156, -348.21094, 191.10938, -128.71094, 185.96875, 72.609375, 309.20313, 605.0469, 299, 646.60156, 274.35156, 605.22656, 421.47656, 843.8594, 451.4297, 1055.3594, 702.8125, 385.0078, 697.0469, 342.46875, 580.53125, 402.27344, 354.7422, 127.3125, 334.14844, 13.2890625, 152.20313, 378.39844, 217.6875, 293.0625, 270.09375, 276.5703, 323.54688, 302.2578, 281.04688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(9, 8, 10, 0, 5), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17), PackedInt32Array(17, 18, 19, 20, 21), PackedInt32Array(17, 21, 22, 15), PackedInt32Array(23, 14, 13, 24, 25, 26), PackedInt32Array(25, 15, 22, 27, 28), PackedInt32Array(26, 25, 28)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-386, 182, -130, 176, 13, 142, 381, 208, 604, 288, 663, 253, 618, 413, 849, 442, 1077, 713, 378, 707, 332, 581, 390, 362, 261, 330, 290, 282, 127, 345, 70, 319, -424, 273, -803, 430, -974, 567, -1108, 721, -717, 716, -541, 502, -218, 658, -41, 633, 238, 627, 156, 476)])
+
 [node name="room" type="Sprite2D" unique_id=551578305]
 texture = ExtResource("1_frsc0")
 script = ExtResource("2_f1jrm")
@@ -70,6 +75,7 @@ position = Vector2(569, 118)
 shape = SubResource("SegmentShape2D_sjkhc")
 
 [node name="NPCPath" type="Node2D" parent="." unique_id=132196925]
+visible = false
 
 [node name="Marker2D" type="Marker2D" parent="NPCPath" unique_id=1277655854]
 position = Vector2(-728, 382)
@@ -98,8 +104,12 @@ position = Vector2(-908, 620)
 [node name="Marker2D9" type="Marker2D" parent="NPCPath" unique_id=609231034]
 position = Vector2(608, 629)
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2127481557]
+navigation_polygon = SubResource("NavigationPolygon_f1jrm")
+
 [node name="damage" parent="." unique_id=1121011096 instance=ExtResource("3_c4af3")]
 position = Vector2(501, 156)
+motion_mode = 1
 
 [node name="cake" parent="." unique_id=1035904099 instance=ExtResource("4_x0lll")]
 position = Vector2(389, 289)
@@ -109,18 +119,6 @@ position = Vector2(-527, 57)
 
 [node name="Node2D4" parent="." unique_id=20402418 instance=ExtResource("6_xm4o8")]
 position = Vector2(-350, 435)
-path = NodePath("../NPCPath")
-
-[node name="Node2D3" parent="." unique_id=541011024 instance=ExtResource("6_xm4o8")]
-position = Vector2(-658, 283)
-path = NodePath("../NPCPath")
-
-[node name="Node2D2" parent="." unique_id=324566262 instance=ExtResource("6_xm4o8")]
-position = Vector2(382, 384)
-path = NodePath("../NPCPath")
-
-[node name="Node2D" parent="." unique_id=1769408280 instance=ExtResource("6_xm4o8")]
-position = Vector2(708, 393)
 path = NodePath("../NPCPath")
 
 [node name="cube" parent="." unique_id=907973123 instance=ExtResource("6_xm4o8")]

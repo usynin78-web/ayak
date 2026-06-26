@@ -173,6 +173,8 @@ shape = SubResource("RectangleShape2D_66o2i")
 position = Vector2(-0.5, 85.5)
 shape = SubResource("RectangleShape2D_pibpc")
 
+[node name="NavigationLink2D" type="NavigationLink2D" parent="." unique_id=604526605]
+
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1215854607]
 position = Vector2(0, 134)
 
