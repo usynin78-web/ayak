@@ -6,7 +6,7 @@ var has_checkpoint: bool = false
 # Список объектов, которые были уничтожены или подобраны
 var removed_objects: Dictionary = {}
 
-const SAVE_FILE := "user://checkpoint.cfg"
+const SAVE_FILE := "user://checkpoint.ayk"
 
 func _ready() -> void:
  load_save_data()
