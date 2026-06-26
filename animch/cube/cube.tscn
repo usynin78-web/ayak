@@ -72,7 +72,7 @@ region = Rect2(546, 738, 182, 369)
 atlas = ExtResource("1_s4mrs")
 region = Rect2(0, 1107, 182, 369)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4hk6m"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4mrs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -136,47 +136,44 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qqya"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vdu5"]
 size = Vector2(134, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vdu5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66o2i"]
 size = Vector2(167, 158)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pibpc"]
 size = Vector2(95, 95)
 
-[node name="Node2D" type="Node2D" unique_id=1064689745 groups=["damageable"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=866400287 groups=["npc"]]
 script = ExtResource("2_3vdu5")
-unique_id = "смерть в нищете"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=225245010]
-sprite_frames = SubResource("SpriteFrames_4hk6m")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1305677379]
+sprite_frames = SubResource("SpriteFrames_s4mrs")
 animation = &"walk"
 speed_scale = 0.5
 
-[node name="Hurtbox" type="Area2D" parent="AnimatedSprite2D" unique_id=472840017]
+[node name="Hurtbox" type="Area2D" parent="AnimatedSprite2D" unique_id=1314020444 groups=["damageable"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hurtbox" unique_id=1416737506]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hurtbox" unique_id=791146477]
 position = Vector2(-1, 87)
-shape = SubResource("RectangleShape2D_0qqya")
-
-[node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Hurtbox" unique_id=230731996 groups=["hp"]]
-script = ExtResource("3_66o2i")
-
-[node name="Vision" type="Area2D" parent="AnimatedSprite2D" unique_id=315346776]
-position = Vector2(1, 84)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Vision" unique_id=54133703]
-position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_3vdu5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1474060323]
+[node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Hurtbox" unique_id=287995983 groups=["hp"]]
+script = ExtResource("3_66o2i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1928757330]
+[node name="Vision" type="Area2D" parent="AnimatedSprite2D" unique_id=181709738]
+position = Vector2(1, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Vision" unique_id=1003594650]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_66o2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=693544912]
 position = Vector2(-0.5, 85.5)
-shape = SubResource("RectangleShape2D_s4mrs")
+shape = SubResource("RectangleShape2D_pibpc")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=155369235]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1215854607]
 position = Vector2(0, 134)
 
 [connection signal="health_changed" from="AnimatedSprite2D/Hurtbox/HealthComponent" to="AnimatedSprite2D/Hurtbox/HealthComponent" method="_on_health_changed"]
