@@ -69,6 +69,35 @@ shape = SubResource("SegmentShape2D_rqio7")
 position = Vector2(569, 118)
 shape = SubResource("SegmentShape2D_sjkhc")
 
+[node name="NPCPath" type="Node2D" parent="." unique_id=132196925]
+
+[node name="Marker2D" type="Marker2D" parent="NPCPath" unique_id=1277655854]
+position = Vector2(-728, 382)
+
+[node name="Marker2D2" type="Marker2D" parent="NPCPath" unique_id=1392516127]
+position = Vector2(-313, 151)
+
+[node name="Marker2D3" type="Marker2D" parent="NPCPath" unique_id=883566119]
+position = Vector2(-262, 321)
+
+[node name="Marker2D4" type="Marker2D" parent="NPCPath" unique_id=694076773]
+position = Vector2(669, 273)
+
+[node name="Marker2D5" type="Marker2D" parent="NPCPath" unique_id=1017593471]
+position = Vector2(132, 170)
+
+[node name="Marker2D6" type="Marker2D" parent="NPCPath" unique_id=1938495663]
+position = Vector2(200, 519)
+
+[node name="Marker2D7" type="Marker2D" parent="NPCPath" unique_id=287064567]
+position = Vector2(-99, 658)
+
+[node name="Marker2D8" type="Marker2D" parent="NPCPath" unique_id=641685747]
+position = Vector2(-908, 620)
+
+[node name="Marker2D9" type="Marker2D" parent="NPCPath" unique_id=609231034]
+position = Vector2(608, 629)
+
 [node name="damage" parent="." unique_id=1121011096 instance=ExtResource("3_c4af3")]
 position = Vector2(501, 156)
 
@@ -80,16 +109,21 @@ position = Vector2(-527, 57)
 
 [node name="Node2D4" parent="." unique_id=20402418 instance=ExtResource("6_xm4o8")]
 position = Vector2(-350, 435)
+path = NodePath("../NPCPath")
 
 [node name="Node2D3" parent="." unique_id=541011024 instance=ExtResource("6_xm4o8")]
 position = Vector2(-658, 283)
+path = NodePath("../NPCPath")
 
 [node name="Node2D2" parent="." unique_id=324566262 instance=ExtResource("6_xm4o8")]
 position = Vector2(382, 384)
+path = NodePath("../NPCPath")
 
 [node name="Node2D" parent="." unique_id=1769408280 instance=ExtResource("6_xm4o8")]
 position = Vector2(708, 393)
+path = NodePath("../NPCPath")
 
 [node name="cube" parent="." unique_id=907973123 instance=ExtResource("6_xm4o8")]
-position = Vector2(26, 318)
+position = Vector2(19, 278)
 max_wait_time = 2.0
+path = NodePath("../NPCPath")

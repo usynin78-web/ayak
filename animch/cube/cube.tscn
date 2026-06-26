@@ -4,6 +4,22 @@
 [ext_resource type="Script" uid="uid://cqydff7f3yank" path="res://animch/cube/cube.gd" id="2_3vdu5"]
 [ext_resource type="Script" uid="uid://ey41ms4q62i5" path="res://animch/cube/health_component.gd" id="3_66o2i"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4mrs"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(0, 0, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vdu5"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(364, 0, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66o2i"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(546, 0, 182, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hk6m"]
+atlas = ExtResource("1_s4mrs")
+region = Rect2(0, 369, 182, 369)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pibpc"]
 atlas = ExtResource("1_s4mrs")
 region = Rect2(0, 0, 182, 369)
@@ -59,6 +75,23 @@ region = Rect2(0, 1107, 182, 369)
 [sub_resource type="SpriteFrames" id="SpriteFrames_4hk6m"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4mrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vdu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66o2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hk6m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_pibpc")
 }, {
@@ -99,12 +132,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_q2vd0")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qqya"]
 size = Vector2(134, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vdu5"]
+size = Vector2(167, 158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4mrs"]
 size = Vector2(95, 95)
@@ -115,18 +151,24 @@ unique_id = "смерть в нищете"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=225245010]
 sprite_frames = SubResource("SpriteFrames_4hk6m")
-frame = 1
-frame_progress = 0.31992435
+animation = &"walk"
 speed_scale = 0.5
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=472840017]
+[node name="Hurtbox" type="Area2D" parent="AnimatedSprite2D" unique_id=472840017]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1416737506]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hurtbox" unique_id=1416737506]
 position = Vector2(-1, 87)
 shape = SubResource("RectangleShape2D_0qqya")
 
-[node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Area2D" unique_id=230731996 groups=["hp"]]
+[node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Hurtbox" unique_id=230731996 groups=["hp"]]
 script = ExtResource("3_66o2i")
+
+[node name="Vision" type="Area2D" parent="AnimatedSprite2D" unique_id=315346776]
+position = Vector2(1, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Vision" unique_id=54133703]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_3vdu5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1474060323]
 
@@ -137,4 +179,4 @@ shape = SubResource("RectangleShape2D_s4mrs")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=155369235]
 position = Vector2(0, 134)
 
-[connection signal="health_changed" from="AnimatedSprite2D/Area2D/HealthComponent" to="AnimatedSprite2D/Area2D/HealthComponent" method="_on_health_changed"]
+[connection signal="health_changed" from="AnimatedSprite2D/Hurtbox/HealthComponent" to="AnimatedSprite2D/Hurtbox/HealthComponent" method="_on_health_changed"]
