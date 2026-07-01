@@ -32,6 +32,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 mouse_cursor/custom_image="uid://bu73qisqmypg4"
 
+[dotnet]
+
+project/assembly_name="ayak"
+
 [global_group]
 
 player=""
