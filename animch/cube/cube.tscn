@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cc3vjjgyt7j7s"]
 
 [ext_resource type="Texture2D" uid="uid://b47ggyyowbkw5" path="res://animch/cube/sprite-sheet.png" id="1_s4mrs"]
-[ext_resource type="Script" uid="uid://cqydff7f3yank" path="res://animch/cube/cube.gd" id="2_3vdu5"]
 [ext_resource type="Script" uid="uid://ey41ms4q62i5" path="res://animch/cube/health_component.gd" id="3_66o2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4mrs"]
@@ -146,7 +145,6 @@ size = Vector2(167, 158)
 size = Vector2(95, 95)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=866400287 groups=["npc"]]
-script = ExtResource("2_3vdu5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1305677379]
 sprite_frames = SubResource("SpriteFrames_s4mrs")

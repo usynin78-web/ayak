@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cmpcfdgabfrua" path="res://loc/roomtest/Без названия42_20251123133006.webp" id="1_frsc0"]
 [ext_resource type="Texture2D" uid="uid://eo0kncvs3yrg" path="res://egg/0.0.02.png" id="1_ucfoa"]
-[ext_resource type="Script" uid="uid://ca0wtn2eiao0r" path="res://loc/roomtest/room.gd" id="2_f1jrm"]
 [ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="3_c4af3"]
 [ext_resource type="PackedScene" uid="uid://uyosw5lg634q" path="res://UI/HP/cake.tscn" id="4_x0lll"]
 [ext_resource type="PackedScene" uid="uid://dkimxk1bjfqin" path="res://loc/roomtest/checkpoint.tscn" id="5_f1jrm"]
@@ -33,7 +32,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-386, 182, -130, 176, 1
 
 [node name="room" type="Sprite2D" unique_id=551578305]
 texture = ExtResource("1_frsc0")
-script = ExtResource("2_f1jrm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=817308171]
 position = Vector2(386, -243.99997)
