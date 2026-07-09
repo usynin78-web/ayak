@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+@export var unique_id: String = ""
 @export var speed: float = 100.0
-
+@onready var health_component: Node = $AnimatedSprite2D/Hurtbox/HealthComponent
 @onready var navigation: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_marker: Marker2D = $FeetMarker
@@ -13,6 +14,46 @@ func _ready() -> void:
  print(navigation)
  print(sprite)
  print(feet_marker)
+ add_to_group("damageable")
+ add_to_group("npc")
+
+ unique_id = str(get_path())
+
+ if CheckpointManager.removed_objects.has(unique_id):
+  queue_free()
+  return
+
+ health_component.health_changed.connect(_on_health_changed)
+ health_component.died.connect(_on_died)
+
+func _on_health_changed(_cur, _max, damage_taken) -> void:
+ hit_effect()
+
+ var damage_scene = preload("res://UI/damage_number.tscn")
+ var damage = damage_scene.instantiate()
+
+ damage.global_position = global_position
+
+ get_tree().current_scene.add_child(damage)
+
+ damage.setup(damage_taken)
+
+func hit_effect() -> void:
+ var original_pos := sprite.position
+
+ var tween := create_tween()
+
+ var offset := Vector2(
+  randf_range(-15, 15),
+  randf_range(-15, 15)
+ )
+
+ tween.tween_property(sprite, "position", original_pos + offset, 0.05)
+ tween.tween_property(sprite, "position", original_pos, 0.08)
+
+func _on_died() -> void:
+ CheckpointManager.removed_objects[unique_id] = true
+ queue_free()
 
 func _physics_process(_delta: float) -> void:
  _move()

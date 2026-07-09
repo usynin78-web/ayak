@@ -143,7 +143,7 @@ size = Vector2(134, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pibpc"]
 size = Vector2(95, 17)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=866400287 groups=["npc"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=866400287 groups=["damageable", "npc"]]
 script = ExtResource("1_3vdu5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2091742628]
