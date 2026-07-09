@@ -1,3 +1,3 @@
-extends Sprite2D
+extends Node2D
 
 @export var location_id := "roomtest01"

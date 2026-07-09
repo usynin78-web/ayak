@@ -63,28 +63,35 @@ func _process(_delta: float) -> void:
  update_perspective()
 
 func _move() -> void:
- # Если путь закончился, просто стоим.
+ # Получаем следующую точку маршрута.
+ var next_point := navigation.get_next_path_position()
+ print(next_point)
+
+ # Проверяем, дошли ли мы до конца.
  if navigation.is_navigation_finished():
   velocity = Vector2.ZERO
 
   if sprite.animation != "idle":
    sprite.play("idle")
 
+  move_and_slide()
   return
 
- # Следующая точка пути.
- var next_point := navigation.get_next_path_position()
-
- # Направление до неё.
+ # Направление к следующей точке.
  var direction := global_position.direction_to(next_point)
 
- # Скорость.
+ # Движение.
  velocity = direction * speed
 
- # Двигаемся.
+ if sprite.animation != "walk":
+  sprite.play("walk")
+
  move_and_slide()
 
 func move_to(target: Vector2) -> void:
+ if NavigationServer2D.map_get_iteration_id(navigation.get_navigation_map()) == 0:
+  return
+
  navigation.target_position = target
 
 func update_perspective() -> void:

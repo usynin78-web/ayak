@@ -49,6 +49,7 @@ damage=""
 checpoint=""
 npc=""
 damageable=""
+point=""
 
 [input]
 

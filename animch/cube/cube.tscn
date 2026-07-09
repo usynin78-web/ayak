@@ -172,20 +172,7 @@ position = Vector2(0, 134)
 [node name="Timer" type="Timer" parent="." unique_id=501614066]
 wait_time = 2.0
 
-[node name="PatrolController" type="Node" parent="." unique_id=1107284590 node_paths=PackedStringArray("patrol_points")]
+[node name="PatrolController" type="Node" parent="." unique_id=1107284590]
 script = ExtResource("4_66o2i")
-patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1311746266]
-position = Vector2(-238, -269)
-
-[node name="Marker2D2" type="Marker2D" parent="." unique_id=444542206]
-position = Vector2(184, -391)
-
-[node name="Marker2D3" type="Marker2D" parent="." unique_id=631329828]
-position = Vector2(-335, 135)
-
-[node name="Marker2D4" type="Marker2D" parent="." unique_id=799960390]
-position = Vector2(221, 69)
 
 [connection signal="health_changed" from="AnimatedSprite2D/Hurtbox/HealthComponent" to="AnimatedSprite2D/Hurtbox/HealthComponent" method="_on_health_changed"]
