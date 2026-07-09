@@ -140,11 +140,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vdu5"]
 size = Vector2(134, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_66o2i"]
-size = Vector2(167, 158)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pibpc"]
-size = Vector2(95, 95)
+size = Vector2(95, 17)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=866400287 groups=["npc"]]
 script = ExtResource("1_3vdu5")
@@ -165,21 +162,30 @@ shape = SubResource("RectangleShape2D_3vdu5")
 [node name="HealthComponent" type="Node" parent="AnimatedSprite2D/Hurtbox" unique_id=287995983 groups=["hp"]]
 script = ExtResource("3_66o2i")
 
-[node name="Vision" type="Area2D" parent="AnimatedSprite2D" unique_id=181709738]
-position = Vector2(1, 84)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Vision" unique_id=1003594650]
-position = Vector2(-0.5, 3)
-shape = SubResource("RectangleShape2D_66o2i")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=693544912]
-position = Vector2(-0.5, 85.5)
+position = Vector2(-0.5, 124.5)
 shape = SubResource("RectangleShape2D_pibpc")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1215854607]
+[node name="FeetMarker" type="Marker2D" parent="." unique_id=1215854607]
 position = Vector2(0, 134)
 
-[node name="PatrolController" type="Node" parent="." unique_id=1107284590]
+[node name="Timer" type="Timer" parent="." unique_id=501614066]
+wait_time = 2.0
+
+[node name="PatrolController" type="Node" parent="." unique_id=1107284590 node_paths=PackedStringArray("patrol_points")]
 script = ExtResource("4_66o2i")
+patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1311746266]
+position = Vector2(-238, -269)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=444542206]
+position = Vector2(184, -391)
+
+[node name="Marker2D3" type="Marker2D" parent="." unique_id=631329828]
+position = Vector2(-335, 135)
+
+[node name="Marker2D4" type="Marker2D" parent="." unique_id=799960390]
+position = Vector2(221, 69)
 
 [connection signal="health_changed" from="AnimatedSprite2D/Hurtbox/HealthComponent" to="AnimatedSprite2D/Hurtbox/HealthComponent" method="_on_health_changed"]

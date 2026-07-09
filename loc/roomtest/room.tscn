@@ -7,115 +7,91 @@
 [ext_resource type="PackedScene" uid="uid://dkimxk1bjfqin" path="res://loc/roomtest/checkpoint.tscn" id="5_f1jrm"]
 [ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="6_xm4o8"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_f1jrm"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x0lll"]
 vertices = PackedVector2Array(-172.61719, 286.35156, -348.21094, 191.10938, -128.71094, 185.96875, 72.609375, 309.20313, 605.22656, 421.47656, 817.6719, 448.14063, 383.35156, 692.5078, 342.46875, 580.53125, 402.78125, 352.8125, 650.3594, 260.97656, 129.47656, 335.1328, 13.3203125, 152.20313, -539.4297, 491.64844, -938.78906, 551.60156, -797.8828, 438.70313, -422.46094, 283.1797, -178.54688, 305.89844, 148.61719, 483.3672, 221.38281, 617.35156, -41.8125, 623.02344, -216.39063, 647.6719)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(10, 3, 2, 11, 9, 8), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 16), PackedInt32Array(16, 19, 20, 12)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-386, 182, -130, 176, 13, 142, 663, 253, 618, 413, 849, 442, 378, 707, 332, 581, 390, 362, 127, 345, 70, 319, -424, 273, -803, 430, -974, 567, -541, 502, -218, 658, -41, 633, 238, 627, 156, 476)])
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjkhc"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f1jrm"]
 rough = true
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_71jsx"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xm4o8"]
 a = Vector2(-1067, 933)
 b = Vector2(-398, 236)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n65ub"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ojwl"]
 size = Vector2(2373, 580.5)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_rqio7"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_c1glt"]
 a = Vector2(589, 140)
 b = Vector2(-587, 142)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_sjkhc"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dsvn8"]
 a = Vector2(693, 736)
 b = Vector2(21, 11)
 
-[node name="room" type="Sprite2D" unique_id=551578305]
+[node name="Node2D" type="Node2D" unique_id=743046942]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1017530605]
+offset_left = -1277.0
+offset_top = -893.0
+offset_right = 1283.0
+offset_bottom = 890.0
 texture = ExtResource("1_frsc0")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2127481557]
-navigation_polygon = SubResource("NavigationPolygon_f1jrm")
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1142953799]
+navigation_polygon = SubResource("NavigationPolygon_x0lll")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=817308171]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=534992644]
 position = Vector2(386, -243.99997)
 scale = Vector2(0.215, 0.215)
 texture = ExtResource("1_ucfoa")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1381902062]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=620554670]
 disable_mode = 1
-physics_material_override = SubResource("PhysicsMaterial_sjkhc")
+physics_material_override = SubResource("PhysicsMaterial_f1jrm")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1517360843]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=284016809]
 position = Vector2(-181, -106)
-shape = SubResource("SegmentShape2D_71jsx")
+shape = SubResource("SegmentShape2D_xm4o8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1692039795]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=892677250]
 position = Vector2(24, 1015)
-shape = SubResource("RectangleShape2D_n65ub")
+shape = SubResource("RectangleShape2D_4ojwl")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1064657433]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1952016621]
 position = Vector2(-15, -726.75)
-shape = SubResource("RectangleShape2D_n65ub")
+shape = SubResource("RectangleShape2D_4ojwl")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=707483350]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1365602173]
 position = Vector2(-1385, 161)
 rotation = -1.5733193
-shape = SubResource("RectangleShape2D_n65ub")
+shape = SubResource("RectangleShape2D_4ojwl")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1013815504]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1092742543]
 position = Vector2(1384, 154)
 rotation = -1.5733193
-shape = SubResource("RectangleShape2D_n65ub")
+shape = SubResource("RectangleShape2D_4ojwl")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1643899645]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=832084570]
 position = Vector2(0, -7)
-shape = SubResource("SegmentShape2D_rqio7")
+shape = SubResource("SegmentShape2D_c1glt")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=824424346]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1807031584]
 position = Vector2(569, 118)
-shape = SubResource("SegmentShape2D_sjkhc")
+shape = SubResource("SegmentShape2D_dsvn8")
 
-[node name="NPCPath" type="Node2D" parent="." unique_id=132196925]
-visible = false
-
-[node name="Marker2D" type="Marker2D" parent="NPCPath" unique_id=1277655854]
-position = Vector2(-728, 382)
-
-[node name="Marker2D2" type="Marker2D" parent="NPCPath" unique_id=1392516127]
-position = Vector2(-313, 151)
-
-[node name="Marker2D3" type="Marker2D" parent="NPCPath" unique_id=883566119]
-position = Vector2(-262, 321)
-
-[node name="Marker2D4" type="Marker2D" parent="NPCPath" unique_id=694076773]
-position = Vector2(669, 273)
-
-[node name="Marker2D5" type="Marker2D" parent="NPCPath" unique_id=1017593471]
-position = Vector2(132, 170)
-
-[node name="Marker2D6" type="Marker2D" parent="NPCPath" unique_id=1938495663]
-position = Vector2(200, 519)
-
-[node name="Marker2D7" type="Marker2D" parent="NPCPath" unique_id=287064567]
-position = Vector2(-99, 658)
-
-[node name="Marker2D8" type="Marker2D" parent="NPCPath" unique_id=641685747]
-position = Vector2(-908, 620)
-
-[node name="Marker2D9" type="Marker2D" parent="NPCPath" unique_id=609231034]
-position = Vector2(608, 629)
-
-[node name="damage" parent="." unique_id=1121011096 instance=ExtResource("3_c4af3")]
+[node name="damage" parent="." unique_id=591284425 instance=ExtResource("3_c4af3")]
 position = Vector2(501, 156)
 
-[node name="cake" parent="." unique_id=1035904099 instance=ExtResource("4_x0lll")]
+[node name="cake" parent="." unique_id=201042093 instance=ExtResource("4_x0lll")]
 position = Vector2(389, 289)
 
 [node name="checkpoint" parent="." unique_id=1504211689 instance=ExtResource("5_f1jrm")]
 position = Vector2(-527, 57)
 
-[node name="Node2D4" parent="." unique_id=20402418 instance=ExtResource("6_xm4o8")]
+[node name="Node2D4" parent="." unique_id=866400287 instance=ExtResource("6_xm4o8")]
 position = Vector2(-350, 435)
 
-[node name="cube" parent="." unique_id=907973123 instance=ExtResource("6_xm4o8")]
+[node name="cube" parent="." unique_id=1790499140 instance=ExtResource("6_xm4o8")]
 position = Vector2(19, 278)

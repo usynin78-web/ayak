@@ -115,6 +115,12 @@ fps_toggle={
 
 locale/translation_add_builtin_strings_to_pot=true
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="NPS"
+2d_physics/layer_3="World"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
