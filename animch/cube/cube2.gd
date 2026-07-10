@@ -11,9 +11,6 @@ var base_scale: Vector2
 
 func _ready() -> void:
  base_scale = sprite.scale
- print(navigation)
- print(sprite)
- print(feet_marker)
  add_to_group("damageable")
  add_to_group("npc")
 
@@ -22,6 +19,8 @@ func _ready() -> void:
  if CheckpointManager.removed_objects.has(unique_id):
   queue_free()
   return
+ if CheckpointManager.npc_positions.has(unique_id):
+  global_position = CheckpointManager.npc_positions[unique_id]
 
  health_component.health_changed.connect(_on_health_changed)
  health_component.died.connect(_on_died)
@@ -65,7 +64,6 @@ func _process(_delta: float) -> void:
 func _move() -> void:
  # Получаем следующую точку маршрута.
  var next_point := navigation.get_next_path_position()
- print(next_point)
 
  # Проверяем, дошли ли мы до конца.
  if navigation.is_navigation_finished():
