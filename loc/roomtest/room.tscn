@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://b6eah46li8ixv"]
 
 [ext_resource type="Texture2D" uid="uid://cmpcfdgabfrua" path="res://loc/roomtest/Без названия42_20251123133006.webp" id="1_frsc0"]
-[ext_resource type="Texture2D" uid="uid://eo0kncvs3yrg" path="res://egg/0.0.02.png" id="1_ucfoa"]
-[ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="3_c4af3"]
-[ext_resource type="PackedScene" uid="uid://uyosw5lg634q" path="res://UI/HP/cake.tscn" id="4_x0lll"]
-[ext_resource type="PackedScene" uid="uid://dkimxk1bjfqin" path="res://loc/roomtest/checkpoint.tscn" id="5_f1jrm"]
+[ext_resource type="Script" uid="uid://cfh5c4ijubv71" path="res://test-drive/patrol_controller.gd" id="3_c4af3"]
 [ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="6_xm4o8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x0lll"]
-vertices = PackedVector2Array(1146.4609, 735.0469, -1128.6328, 739.9375, -574.6875, 157.96875, 580.78125, 150.02344)
+vertices = PackedVector2Array(1147.0703, 735.03906, -1128.8281, 739.9531, -571.6172, 146.9375, 586.6875, 133.04688)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(585, 140, 1170, 745, -1152, 750, -579, 148)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(591, 123, 1170, 745, -1152, 750, -576, 137)])
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f1jrm"]
 rough = true
@@ -41,20 +38,6 @@ texture = ExtResource("1_frsc0")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1142953799]
 navigation_polygon = SubResource("NavigationPolygon_x0lll")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=393612325]
-vertices = PackedVector2Array(-622, 174, -576, 248, -488, 237, -451, 177, -451, 134)
-
-[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="." unique_id=2146306224]
-vertices = PackedVector2Array(405, 145, 405, 185, 431, 205, 545, 217, 605, 165, 576, 117, 414, 111)
-
-[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="." unique_id=956227484]
-vertices = PackedVector2Array(325, 262, 343, 328, 417, 328, 442, 285, 391, 240)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=534992644]
-position = Vector2(386, -243.99997)
-scale = Vector2(0.215, 0.215)
-texture = ExtResource("1_ucfoa")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=620554670]
 disable_mode = 1
@@ -90,31 +73,24 @@ shape = SubResource("SegmentShape2D_c1glt")
 position = Vector2(569, 118)
 shape = SubResource("SegmentShape2D_dsvn8")
 
-[node name="damage" parent="." unique_id=591284425 instance=ExtResource("3_c4af3")]
-position = Vector2(501, 156)
-
-[node name="cake" parent="." unique_id=201042093 instance=ExtResource("4_x0lll")]
-position = Vector2(389, 289)
-
-[node name="checkpoint" parent="." unique_id=1504211689 instance=ExtResource("5_f1jrm")]
-position = Vector2(-527, 57)
-
-[node name="Node2D4" parent="." unique_id=866400287 instance=ExtResource("6_xm4o8")]
-position = Vector2(-350, 435)
-
 [node name="cube" parent="." unique_id=1790499140 instance=ExtResource("6_xm4o8")]
 position = Vector2(19, 278)
 
 [node name="PatrolPoints" type="Node" parent="." unique_id=1860105070]
 
 [node name="Marker2D" type="Marker2D" parent="PatrolPoints" unique_id=1592025914 groups=["point"]]
-position = Vector2(-541, 290)
+position = Vector2(-455, 274)
 
 [node name="Marker2D2" type="Marker2D" parent="PatrolPoints" unique_id=1884212186 groups=["point"]]
-position = Vector2(630, 245)
+position = Vector2(539, 230)
 
 [node name="Marker2D3" type="Marker2D" parent="PatrolPoints" unique_id=40733522 groups=["point"]]
-position = Vector2(-1013, 696)
+position = Vector2(-531, 582)
 
 [node name="Marker2D4" type="Marker2D" parent="PatrolPoints" unique_id=1336926164 groups=["point"]]
-position = Vector2(1037, 686)
+position = Vector2(822, 568)
+
+[node name="PatrolController" type="Node" parent="." unique_id=1030699881 node_paths=PackedStringArray("cube", "points")]
+script = ExtResource("3_c4af3")
+cube = NodePath("../cube")
+points = [NodePath("../PatrolPoints/Marker2D"), NodePath("../PatrolPoints/Marker2D3"), NodePath("../PatrolPoints/Marker2D2"), NodePath("../PatrolPoints/Marker2D4")]

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ddcs3idlax43r" path="res://animch/cube/cube2.gd" id="1_3vdu5"]
 [ext_resource type="Texture2D" uid="uid://b47ggyyowbkw5" path="res://animch/cube/sprite-sheet.png" id="1_s4mrs"]
 [ext_resource type="Script" uid="uid://ey41ms4q62i5" path="res://animch/cube/health_component.gd" id="3_66o2i"]
-[ext_resource type="Script" uid="uid://c4scrkxiadgnl" path="res://animch/cube/patrol_controller.gd" id="4_66o2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4mrs"]
 atlas = ExtResource("1_s4mrs")
@@ -171,8 +170,5 @@ position = Vector2(0, 134)
 
 [node name="Timer" type="Timer" parent="." unique_id=501614066]
 wait_time = 2.0
-
-[node name="PatrolController" type="Node" parent="." unique_id=1107284590]
-script = ExtResource("4_66o2i")
 
 [connection signal="health_changed" from="AnimatedSprite2D/Hurtbox/HealthComponent" to="AnimatedSprite2D/Hurtbox/HealthComponent" method="_on_health_changed"]

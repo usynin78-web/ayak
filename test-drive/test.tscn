@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ch7xex51hk6aa"]
+
+[ext_resource type="PackedScene" uid="uid://csxurg8ubkvwh" path="res://test-drive/npc.tscn" id="1_j7is0"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tfqo8"]
+vertices = PackedVector2Array(2142, -108.28125, 2142, 1190, -146.84375, 1190, -125.15625, -173.70313)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-135, -184, -157, 1200, 2152, 1200, 2152, -118)])
+
+[node name="Node2D" type="Node2D" unique_id=315610404]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2094974820]
+navigation_polygon = SubResource("NavigationPolygon_tfqo8")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=256182717 groups=["point"]]
+position = Vector2(162, 132)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=97889019 groups=["point"]]
+position = Vector2(156, 971)
+
+[node name="Marker2D3" type="Marker2D" parent="." unique_id=2078484910 groups=["point"]]
+position = Vector2(1717, 116)
+
+[node name="Marker2D4" type="Marker2D" parent="." unique_id=1825973201 groups=["point"]]
+position = Vector2(1710, 943)
+
+[node name="CharacterBody2D" parent="." unique_id=1693635557 instance=ExtResource("1_j7is0")]
+
+[node name="PatrolController" type="Node" parent="." unique_id=1424100493]

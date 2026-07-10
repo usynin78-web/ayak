@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://csxurg8ubkvwh"]
+
+[ext_resource type="Script" uid="uid://bsbc2v7iybtli" path="res://test-drive/npc.gd" id="1_1pqic"]
+[ext_resource type="Texture2D" uid="uid://c3o5lxe3c52d0" path="res://egg/icon_forayak.png" id="2_e51it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6j0u"]
+size = Vector2(174, 51)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1693635557]
+script = ExtResource("1_1pqic")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=972196440]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1918574403]
+texture = ExtResource("2_e51it")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2084410635]
+position = Vector2(-3, 101.5)
+shape = SubResource("RectangleShape2D_n6j0u")
+
+[node name="Timer" type="Timer" parent="." unique_id=376099398]
