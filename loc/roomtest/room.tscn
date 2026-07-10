@@ -78,19 +78,22 @@ position = Vector2(19, 278)
 
 [node name="PatrolPoints" type="Node" parent="." unique_id=1860105070]
 
-[node name="Marker2D" type="Marker2D" parent="PatrolPoints" unique_id=1592025914 groups=["point"]]
+[node name="1" type="Marker2D" parent="PatrolPoints" unique_id=1592025914 groups=["point"]]
 position = Vector2(-455, 274)
 
-[node name="Marker2D2" type="Marker2D" parent="PatrolPoints" unique_id=1884212186 groups=["point"]]
+[node name="2" type="Marker2D" parent="PatrolPoints" unique_id=1884212186 groups=["point"]]
 position = Vector2(539, 230)
 
-[node name="Marker2D3" type="Marker2D" parent="PatrolPoints" unique_id=40733522 groups=["point"]]
+[node name="3" type="Marker2D" parent="PatrolPoints" unique_id=40733522 groups=["point"]]
 position = Vector2(-531, 582)
 
-[node name="Marker2D4" type="Marker2D" parent="PatrolPoints" unique_id=1336926164 groups=["point"]]
+[node name="4" type="Marker2D" parent="PatrolPoints" unique_id=1336926164 groups=["point"]]
 position = Vector2(822, 568)
 
 [node name="PatrolController" type="Node" parent="." unique_id=1030699881 node_paths=PackedStringArray("cube", "points")]
 script = ExtResource("3_c4af3")
 cube = NodePath("../cube")
-points = [NodePath("../PatrolPoints/Marker2D"), NodePath("../PatrolPoints/Marker2D3"), NodePath("../PatrolPoints/Marker2D2"), NodePath("../PatrolPoints/Marker2D4")]
+points = [NodePath("../PatrolPoints/1"), NodePath("../PatrolPoints/2"), NodePath("../PatrolPoints/3"), NodePath("../PatrolPoints/4")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=774168166]
+zoom = Vector2(0.5, 0.5)

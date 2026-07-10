@@ -54,42 +54,37 @@ func _on_died() -> void:
  CheckpointManager.removed_objects[unique_id] = true
  queue_free()
 
-func _physics_process(_delta: float) -> void:
- _move()
-
 func _process(_delta: float) -> void:
  z_index = int(feet_marker.global_position.y)
  update_perspective()
 
+func _physics_process(_delta: float) -> void:
+ _move()
+
+
 func _move() -> void:
- # Получаем следующую точку маршрута.
- var next_point := navigation.get_next_path_position()
+    # Проверяем, дошли ли мы до конца.
+    if navigation.is_navigation_finished():
+        velocity = Vector2.ZERO
+        if sprite.animation != "idle":
+            sprite.play("idle")
+        # Если мы уже стоим, move_and_slide() можно не вызывать каждую секунду
+        return
+    # Получаем следующую точку маршрута.
+    var next_point := navigation.get_next_path_position()
+    # Направление к следующей точке.
+    var direction := global_position.direction_to(next_point)
 
- # Проверяем, дошли ли мы до конца.
- if navigation.is_navigation_finished():
-  velocity = Vector2.ZERO
+    # Движение.
+    velocity = direction * speed
 
-  if sprite.animation != "idle":
-   sprite.play("idle")
+    if sprite.animation != "walk":
+        sprite.play("walk")
 
-  move_and_slide()
-  return
+    move_and_slide()
 
- # Направление к следующей точке.
- var direction := global_position.direction_to(next_point)
-
- # Движение.
- velocity = direction * speed
-
- if sprite.animation != "walk":
-  sprite.play("walk")
-
- move_and_slide()
 
 func move_to(target: Vector2) -> void:
- if NavigationServer2D.map_get_iteration_id(navigation.get_navigation_map()) == 0:
-  return
-
  navigation.target_position = target
 
 func update_perspective() -> void:

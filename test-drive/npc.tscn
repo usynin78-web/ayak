@@ -10,6 +10,7 @@ size = Vector2(174, 51)
 script = ExtResource("1_1pqic")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=972196440]
+debug_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1918574403]
 texture = ExtResource("2_e51it")

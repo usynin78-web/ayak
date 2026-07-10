@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://d1iyo0wokvbke"]
 
 [ext_resource type="Script" uid="uid://y7ymu3ojilq3" path="res://loc/roomtest/roomtest.gd" id="1_rqio7"]
-[ext_resource type="PackedScene" uid="uid://b6eah46li8ixv" path="res://loc/roomtest/room.tscn" id="2_n65ub"]
 [ext_resource type="PackedScene" uid="uid://b8lfkrsaj8rb3" path="res://animch/c3/c3.tscn" id="2_rqio7"]
+[ext_resource type="PackedScene" uid="uid://ch7xex51hk6aa" path="res://test-drive/test.tscn" id="2_sjkhc"]
 [ext_resource type="PackedScene" uid="uid://cfjm7vprwitbq" path="res://UI/HP/hp.tscn" id="5_n65ub"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lxy7o"]
-load_path = "res://.godot/imported/Без названия42_20251123133006.webp-be6baab2759704e98af25b4fb1dc279a.ctex"
 
 [sub_resource type="Animation" id="Animation_sjkhc"]
 resource_name = "fade_out"
@@ -31,9 +28,7 @@ _data = {
 [node name="Node2D2" type="Node2D" unique_id=1507650962]
 script = ExtResource("1_rqio7")
 
-[node name="room" parent="." unique_id=1821550512 instance=ExtResource("2_n65ub")]
-position = Vector2(988, 587)
-texture = SubResource("CompressedTexture2D_lxy7o")
+[node name="Node2D" parent="." unique_id=315610404 instance=ExtResource("2_sjkhc")]
 
 [node name="c3" parent="." unique_id=2008111130 instance=ExtResource("2_rqio7")]
 position = Vector2(982.00006, 584.00006)
