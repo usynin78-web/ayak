@@ -42,22 +42,10 @@ texture = ExtResource("1_ntlj5")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2094974820]
 navigation_polygon = SubResource("NavigationPolygon_tfqo8")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=256182717 groups=["point"]]
-position = Vector2(516, 817)
-
-[node name="Marker2D2" type="Marker2D" parent="." unique_id=97889019 groups=["point"]]
-position = Vector2(209, 1194)
-
-[node name="Marker2D3" type="Marker2D" parent="." unique_id=2078484910 groups=["point"]]
-position = Vector2(1541, 798)
-
-[node name="Marker2D4" type="Marker2D" parent="." unique_id=1825973201 groups=["point"]]
-position = Vector2(1836, 1190)
-
-[node name="PatrolController" type="Node" parent="." unique_id=1424100493 node_paths=PackedStringArray("cube", "points")]
+[node name="PatrolController" type="Node" parent="." unique_id=1424100493 node_paths=PackedStringArray("cube", "routes")]
 script = ExtResource("2_j7is0")
 cube = NodePath("../CharacterBody2D2")
-points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
+routes = [NodePath("../RouteRoom")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1540922890]
 position = Vector2(1025, 605)
@@ -105,3 +93,17 @@ position = Vector2(1485, 728)
 
 [node name="checkpoint" parent="." unique_id=1504211689 instance=ExtResource("6_cr1la")]
 position = Vector2(523, 628)
+
+[node name="RouteRoom" type="Node2D" parent="." unique_id=1963344183]
+
+[node name="Marker2D" type="Marker2D" parent="RouteRoom" unique_id=256182717 groups=["point"]]
+position = Vector2(516, 817)
+
+[node name="Marker2D2" type="Marker2D" parent="RouteRoom" unique_id=97889019 groups=["point"]]
+position = Vector2(209, 1194)
+
+[node name="Marker2D3" type="Marker2D" parent="RouteRoom" unique_id=2078484910 groups=["point"]]
+position = Vector2(1541, 798)
+
+[node name="Marker2D4" type="Marker2D" parent="RouteRoom" unique_id=1825973201 groups=["point"]]
+position = Vector2(1836, 1190)
