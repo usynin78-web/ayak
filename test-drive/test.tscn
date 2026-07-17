@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cmpcfdgabfrua" path="res://loc/roomtest/Без названия42_20251123133006.webp" id="1_ntlj5"]
 [ext_resource type="Script" uid="uid://cfh5c4ijubv71" path="res://test-drive/patrol_controller.gd" id="2_j7is0"]
+[ext_resource type="Texture2D" uid="uid://eo0kncvs3yrg" path="res://egg/0.0.02.png" id="2_n6j0u"]
 [ext_resource type="PackedScene" uid="uid://uyosw5lg634q" path="res://UI/HP/cake.tscn" id="4_tfqo8"]
 [ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="4_unr6s"]
 [ext_resource type="PackedScene" uid="uid://t0icfbp38p41" path="res://UI/HP/damage.tscn" id="5_n6j0u"]
@@ -38,6 +39,11 @@ offset_top = -296.0
 offset_right = 2308.0
 offset_bottom = 1487.0
 texture = ExtResource("1_ntlj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506767114]
+position = Vector2(1406.0001, 390.99997)
+scale = Vector2(0.19262701, 0.19433595)
+texture = ExtResource("2_n6j0u")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2094974820]
 navigation_polygon = SubResource("NavigationPolygon_tfqo8")
@@ -84,6 +90,8 @@ shape = SubResource("SegmentShape2D_n6j0u")
 
 [node name="CharacterBody2D2" parent="." unique_id=866400287 instance=ExtResource("4_unr6s")]
 position = Vector2(1158, 916)
+unique_id = null
+speed = null
 
 [node name="cake" parent="." unique_id=570425941 instance=ExtResource("4_tfqo8")]
 position = Vector2(1353, 791)

@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 # Сколько здоровья восстанавливает торт.
 @export var heal_amount: int = 25
 
-# Если true — торт исчезнет после использования.
+# Если true — торт исчезнет после использования. 
 @export var destroy_after_heal: bool = true
 
 var _is_used: bool = false
