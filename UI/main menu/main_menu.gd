@@ -41,7 +41,7 @@ func _on_start_pressed():
 		# это очистит список убитых врагов в оперативной памяти.
 		CheckpointManager.clear_save()
 		
-		tree.change_scene_to_file("res://loc/roomtest/roomtest.tscn")
+		tree.change_scene_to_file("res://loc/roomtest/main.tscn")
 	else:
 		push_error("SceneTree не найден")
 
@@ -52,7 +52,7 @@ func _on_continue_pressed() -> void:
 	if tree:
 		# При продолжении мы НЕ очищаем словарь, 
 		# так как убитые враги должны остаться мертвыми.
-		tree.change_scene_to_file("res://loc/roomtest/roomtest.tscn")
+		tree.change_scene_to_file("res://loc/roomtest/main.tscn")
 	else:
 		push_error("SceneTree не найден")
 

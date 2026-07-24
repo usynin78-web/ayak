@@ -35,7 +35,7 @@ func save_checkpoint(pos: Vector2, hp: int) -> void:
 		npc_positions[npc.unique_id] = npc.global_position
 	
 	config.set_value("world", "removed_objects", removed_objects)
-	config.get_value("world", "npc_positions", npc_positions)
+	config.set_value("world", "npc_positions", npc_positions)
 
 	var err := config.save(SAVE_FILE)
 	if err != OK:
