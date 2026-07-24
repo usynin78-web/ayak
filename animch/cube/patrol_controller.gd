@@ -1,56 +1,53 @@
 extends Node
 
-@export var npc: CharacterBody2D
-@export var patrol_group: String = "point"
-@export var wait_time: float = 2.0
+@export var cube: CharacterBody2D
+@export var routes: Array[Node2D]
 
-var patrol_points: Array[Marker2D] = []
-
-@onready var timer: Timer = npc.get_node("Timer")
-
-var current_point: int = 0
-var waiting: bool = false
-
+var points: Array[Marker2D] = []
+var current := 0
 
 func _ready() -> void:
- await get_tree().process_frame
+ # Ждём, пока куб полностью инициализируется.
+ await cube.ready
 
- if npc == null:
-  push_error("NPC не назначен в PatrolController!")
+ # Получаем NavigationAgent2D напрямую, а не через переменную navigation.
+ var agent: NavigationAgent2D = cube.get_node("NavigationAgent2D")
+
+ # Подключаем сигнал.
+ agent.navigation_finished.connect(_on_navigation_finished)
+
+ # Даём NavigationServer один физический кадр.
+ await get_tree().physics_frame
+
+ _choose_route()
+ # Отправляем кубик к первой точке.
+ _send_to_next_point()
+
+func _choose_route() -> void:
+ if routes.is_empty():
   return
 
- timer.wait_time = wait_time
- timer.timeout.connect(_on_timer_timeout)
+ var route: Node2D = routes.pick_random()
 
- for node in get_tree().get_nodes_in_group(patrol_group):
-  if node is Marker2D:
-   patrol_points.append(node)
+ points.clear()
 
- # Чтобы порядок маркеров был одинаковым всегда
- patrol_points.sort_custom(
-  func(a, b):
-   return a.name < b.name
- )
+ for child in route.get_children():
+  if child is Marker2D:
+   points.append(child)
 
- if patrol_points.is_empty():
-  push_warning("Не найдено ни одной точки патруля группы: " + patrol_group)
+ current = 0
+
+func _send_to_next_point():
+ if points.is_empty():
   return
+ cube.move_to(points[current].global_position)
 
- npc.move_to(patrol_points[current_point].global_position)
+func _on_navigation_finished():
+ current += 1
 
+ if current >= points.size():
+  _choose_route()
 
-func _process(_delta: float) -> void:
- if waiting or patrol_points.is_empty():
-  return
+ print("Следующая точка:", current)
 
- if npc.navigation.is_navigation_finished():
-  waiting = true
-  timer.start()
-
-
-func _on_timer_timeout() -> void:
- waiting = false
-
- current_point = (current_point + 1) % patrol_points.size()
-
- npc.move_to(patrol_points[current_point].global_position)
+ _send_to_next_point()

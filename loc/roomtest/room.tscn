@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6eah46li8ixv"]
 
 [ext_resource type="Texture2D" uid="uid://cmpcfdgabfrua" path="res://loc/roomtest/Без названия42_20251123133006.webp" id="1_frsc0"]
-[ext_resource type="Script" uid="uid://cfh5c4ijubv71" path="res://test-drive/patrol_controller.gd" id="3_c4af3"]
+[ext_resource type="Script" uid="uid://cfh5c4ijubv71" path="res://animch/cube/patrol_controller.gd" id="3_c4af3"]
 [ext_resource type="PackedScene" uid="uid://cc3vjjgyt7j7s" path="res://animch/cube/cube.tscn" id="6_xm4o8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x0lll"]
