@@ -7,6 +7,14 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_marker: Marker2D = $FeetMarker
 @onready var vision_controller = $VisionController
+@export var walk_sway := 4.0
+@export var walk_speed := 10.0
+@export var min_wait_time := 1.0
+@export var max_wait_time := 3.0
+
+var is_waiting := false
+
+var sway_time := 0.0
 
 var base_scale: Vector2
 
@@ -33,6 +41,20 @@ func _on_player_spotted(player: Node2D) -> void:
 
 func _on_player_lost(player: Node2D) -> void:
     print("🙈 Потерял игрока!")
+
+func wait_before_next_move() -> void:
+    if is_waiting:
+        return
+
+    is_waiting = true
+    velocity = Vector2.ZERO
+    sprite.play("idle")
+
+    await get_tree().create_timer(
+        randf_range(min_wait_time, max_wait_time)
+    ).timeout
+
+    is_waiting = false
 
 func _on_health_changed(_cur, _max, damage_taken) -> void:
  hit_effect()
@@ -63,15 +85,23 @@ func _on_died() -> void:
  CheckpointManager.removed_objects[unique_id] = true
  queue_free()
 
-func _process(_delta: float) -> void:
- z_index = int(feet_marker.global_position.y)
- update_perspective()
+func _process(delta: float) -> void:
+    z_index = int(feet_marker.global_position.y)
+    update_perspective()
+
+    if velocity.length() > 1:
+        sway_time += delta * walk_speed
+        sprite.rotation = sin(sway_time) * deg_to_rad(walk_sway)
+    else:
+        sprite.rotation = lerp_angle(sprite.rotation, 0.0, delta * 8.0)
 
 func _physics_process(_delta: float) -> void:
  _move()
 
 
 func _move() -> void:
+    if is_waiting:
+     return
     # Проверяем, дошли ли мы до конца.
     if navigation.is_navigation_finished():
         velocity = Vector2.ZERO
@@ -95,7 +125,13 @@ func _move() -> void:
 
 
 func move_to(target: Vector2) -> void:
- navigation.target_position = target
+    print(sprite.animation)
+    navigation.target_position = target
+
+    var direction := global_position.direction_to(target)
+    vision_controller.set_direction(direction)
+
+    sprite.play("walk")
 
 func update_perspective() -> void:
  var scale_factor := clampf(

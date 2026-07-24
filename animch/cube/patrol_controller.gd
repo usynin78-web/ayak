@@ -6,55 +6,57 @@ extends Node
 var npc_data := {}
 
 func _ready() -> void:
-	for npc in cube:
-		await npc.ready
+    for npc in cube:
+        await npc.ready
 
-		var agent: NavigationAgent2D = npc.get_node("NavigationAgent2D")
-		agent.navigation_finished.connect(_on_navigation_finished.bind(npc))
+        var agent: NavigationAgent2D = npc.get_node("NavigationAgent2D")
+        agent.navigation_finished.connect(_on_navigation_finished.bind(npc))
 
-		npc_data[npc] = {
-			"points": [],
-			"current": 0
-		}
+        npc_data[npc] = {
+            "points": [],
+            "current": 0
+        }
 
-		_choose_route(npc)
-		_send_to_next_point(npc)
+        _choose_route(npc)
+        _send_to_next_point(npc)
 
 
 func _choose_route(npc: CharacterBody2D) -> void:
-	if routes.is_empty():
-		return
+    if routes.is_empty():
+        return
 
-	var route: Node2D = routes.pick_random()
+    var route: Node2D = routes.pick_random()
 
-	var points: Array[Marker2D] = []
+    var points: Array[Marker2D] = []
 
-	for child in route.get_children():
-		if child is Marker2D:
-			points.append(child)
+    for child in route.get_children():
+        if child is Marker2D:
+            points.append(child)
 
-	npc_data[npc]["points"] = points
-	npc_data[npc]["current"] = randi() % points.size()
+    npc_data[npc]["points"] = points
+    npc_data[npc]["current"] = randi() % points.size()
 
 
 func _send_to_next_point(npc: CharacterBody2D) -> void:
-	var points: Array = npc_data[npc]["points"]
+    var points: Array = npc_data[npc]["points"]
 
-	if points.is_empty():
-		return
+    if points.is_empty():
+        return
 
-	var current: int = npc_data[npc]["current"]
+    var current: int = npc_data[npc]["current"]
 
-	npc.move_to(points[current].global_position)
+    npc.move_to(points[current].global_position)
 
 
 func _on_navigation_finished(npc: CharacterBody2D) -> void:
-	npc_data[npc]["current"] += 1
+    await npc.wait_before_next_move()
 
-	var current: int = npc_data[npc]["current"]
-	var points: Array = npc_data[npc]["points"]
+    npc_data[npc]["current"] += 1
 
-	if current >= points.size():
-		_choose_route(npc)
+    var current: int = npc_data[npc]["current"]
+    var points: Array = npc_data[npc]["points"]
 
-	_send_to_next_point(npc)
+    if current >= points.size():
+        _choose_route(npc)
+
+    _send_to_next_point(npc)
