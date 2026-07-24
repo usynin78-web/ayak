@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cc3vjjgyt7j7s"]
 
-[ext_resource type="Script" uid="uid://ddcs3idlax43r" path="res://animch/cube/cube2.gd" id="1_3vdu5"]
+[ext_resource type="Script" uid="uid://ddcs3idlax43r" path="res://animch/cube/cube.gd" id="1_3vdu5"]
 [ext_resource type="Texture2D" uid="uid://b47ggyyowbkw5" path="res://animch/cube/sprite-sheet.png" id="1_s4mrs"]
 [ext_resource type="Script" uid="uid://ey41ms4q62i5" path="res://animch/cube/health_component.gd" id="3_66o2i"]
+[ext_resource type="Script" uid="uid://c2uojvejhxs8a" path="res://animch/cube/vision_controller.gd" id="4_3vdu5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4mrs"]
 atlas = ExtResource("1_s4mrs")
@@ -171,5 +172,16 @@ position = Vector2(0, 134)
 
 [node name="Timer" type="Timer" parent="." unique_id=501614066]
 wait_time = 2.0
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=319389344]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea" unique_id=729567807]
+position = Vector2(-41, 248.00002)
+rotation = 1.560064
+polygon = PackedVector2Array(226.16943, -14.573554, 149.0166, 185.60995, -28.658234, 340.71204, -293.75916, 441.87277, -316.22064, -25.990623, -295.20877, -541.1994, -20.641296, -406.24493, 165.75949, -256.2358)
+
+[node name="VisionController" type="Node" parent="." unique_id=1990055766 node_paths=PackedStringArray("vision_area")]
+script = ExtResource("4_3vdu5")
+vision_area = NodePath("../VisionArea")
 
 [connection signal="health_changed" from="AnimatedSprite2D/Hurtbox/HealthComponent" to="AnimatedSprite2D/Hurtbox/HealthComponent" method="_on_health_changed"]

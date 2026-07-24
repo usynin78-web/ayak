@@ -1,53 +1,60 @@
 extends Node
 
-@export var cube: CharacterBody2D
+@export var cube: Array[CharacterBody2D]
 @export var routes: Array[Node2D]
 
-var points: Array[Marker2D] = []
-var current := 0
+var npc_data := {}
 
 func _ready() -> void:
- # Ждём, пока куб полностью инициализируется.
- await cube.ready
+	for npc in cube:
+		await npc.ready
 
- # Получаем NavigationAgent2D напрямую, а не через переменную navigation.
- var agent: NavigationAgent2D = cube.get_node("NavigationAgent2D")
+		var agent: NavigationAgent2D = npc.get_node("NavigationAgent2D")
+		agent.navigation_finished.connect(_on_navigation_finished.bind(npc))
 
- # Подключаем сигнал.
- agent.navigation_finished.connect(_on_navigation_finished)
+		npc_data[npc] = {
+			"points": [],
+			"current": 0
+		}
 
- # Даём NavigationServer один физический кадр.
- await get_tree().physics_frame
+		_choose_route(npc)
+		_send_to_next_point(npc)
 
- _choose_route()
- # Отправляем кубик к первой точке.
- _send_to_next_point()
 
-func _choose_route() -> void:
- if routes.is_empty():
-  return
+func _choose_route(npc: CharacterBody2D) -> void:
+	if routes.is_empty():
+		return
 
- var route: Node2D = routes.pick_random()
+	var route: Node2D = routes.pick_random()
 
- points.clear()
+	var points: Array[Marker2D] = []
 
- for child in route.get_children():
-  if child is Marker2D:
-   points.append(child)
+	for child in route.get_children():
+		if child is Marker2D:
+			points.append(child)
 
- current = 0
+	npc_data[npc]["points"] = points
+	npc_data[npc]["current"] = randi() % points.size()
 
-func _send_to_next_point():
- if points.is_empty():
-  return
- cube.move_to(points[current].global_position)
 
-func _on_navigation_finished():
- current += 1
+func _send_to_next_point(npc: CharacterBody2D) -> void:
+	var points: Array = npc_data[npc]["points"]
 
- if current >= points.size():
-  _choose_route()
+	if points.is_empty():
+		return
 
- print("Следующая точка:", current)
+	var current: int = npc_data[npc]["current"]
 
- _send_to_next_point()
+	npc.move_to(points[current].global_position)
+
+
+func _on_navigation_finished(npc: CharacterBody2D) -> void:
+	npc_data[npc]["current"] += 1
+
+	var current: int = npc_data[npc]["current"]
+	var points: Array = npc_data[npc]["points"]
+
+	if current >= points.size():
+		_choose_route(npc)
+
+	_send_to_next_point(npc)

@@ -50,8 +50,8 @@ navigation_polygon = SubResource("NavigationPolygon_tfqo8")
 
 [node name="PatrolController" type="Node" parent="." unique_id=1424100493 node_paths=PackedStringArray("cube", "routes")]
 script = ExtResource("2_j7is0")
-cube = NodePath("../CharacterBody2D2")
-routes = [NodePath("../RouteRoom")]
+cube = [NodePath("../CharacterBody2D"), NodePath("../CharacterBody2D2")]
+routes = [NodePath("../RouteRoom"), NodePath("../RouteRoom2")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1540922890]
 position = Vector2(1025, 605)
@@ -88,10 +88,13 @@ shape = SubResource("SegmentShape2D_tfqo8")
 position = Vector2(569, 118)
 shape = SubResource("SegmentShape2D_n6j0u")
 
+[node name="CharacterBody2D" parent="." unique_id=2057261257 instance=ExtResource("4_unr6s")]
+position = Vector2(737, 943)
+unique_id = "куб"
+
 [node name="CharacterBody2D2" parent="." unique_id=866400287 instance=ExtResource("4_unr6s")]
-position = Vector2(1158, 916)
-unique_id = null
-speed = null
+position = Vector2(1412, 969)
+unique_id = "куб"
 
 [node name="cake" parent="." unique_id=570425941 instance=ExtResource("4_tfqo8")]
 position = Vector2(1353, 791)
@@ -115,3 +118,17 @@ position = Vector2(1541, 798)
 
 [node name="Marker2D4" type="Marker2D" parent="RouteRoom" unique_id=1825973201 groups=["point"]]
 position = Vector2(1836, 1190)
+
+[node name="RouteRoom2" type="Node2D" parent="." unique_id=1199028297]
+
+[node name="Marker2D4" type="Marker2D" parent="RouteRoom2" unique_id=1780048150 groups=["point"]]
+position = Vector2(1836, 1190)
+
+[node name="Marker2D3" type="Marker2D" parent="RouteRoom2" unique_id=1579749186 groups=["point"]]
+position = Vector2(1541, 798)
+
+[node name="Marker2D" type="Marker2D" parent="RouteRoom2" unique_id=1130596100 groups=["point"]]
+position = Vector2(516, 817)
+
+[node name="Marker2D2" type="Marker2D" parent="RouteRoom2" unique_id=1666102796 groups=["point"]]
+position = Vector2(209, 1194)

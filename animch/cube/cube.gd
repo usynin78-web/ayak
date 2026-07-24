@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var navigation: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_marker: Marker2D = $FeetMarker
+@onready var vision_controller = $VisionController
 
 var base_scale: Vector2
 
@@ -13,6 +14,8 @@ func _ready() -> void:
  base_scale = sprite.scale
  add_to_group("damageable")
  add_to_group("npc")
+ vision_controller.player_spotted.connect(_on_player_spotted)
+ vision_controller.player_lost.connect(_on_player_lost)
 
  unique_id = str(get_path())
 
@@ -24,6 +27,12 @@ func _ready() -> void:
 
  health_component.health_changed.connect(_on_health_changed)
  health_component.died.connect(_on_died)
+
+func _on_player_spotted(player: Node2D) -> void:
+    print("👀 Вижу игрока!")
+
+func _on_player_lost(player: Node2D) -> void:
+    print("🙈 Потерял игрока!")
 
 func _on_health_changed(_cur, _max, damage_taken) -> void:
  hit_effect()
@@ -75,7 +84,8 @@ func _move() -> void:
     # Направление к следующей точке.
     var direction := global_position.direction_to(next_point)
 
-    # Движение.
+    vision_controller.set_direction(direction)
+
     velocity = direction * speed
 
     if sprite.animation != "walk":
