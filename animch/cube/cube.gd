@@ -37,10 +37,10 @@ func _ready() -> void:
  health_component.died.connect(_on_died)
 
 func _on_player_spotted(player: Node2D) -> void:
-    print("👀 Вижу игрока!")
+    print("👀 Вижу Кирчика!")
 
 func _on_player_lost(player: Node2D) -> void:
-    print("🙈 Потерял игрока!")
+    print("🙈 Потерял Кирчика!")
 
 func wait_before_next_move() -> void:
     if is_waiting:
