@@ -37,24 +37,24 @@ func _ready() -> void:
  health_component.died.connect(_on_died)
 
 func _on_player_spotted(player: Node2D) -> void:
-    print("👀 Вижу Кирчика!")
+	print("👀 Вижу Кирчика!")
 
 func _on_player_lost(player: Node2D) -> void:
-    print("🙈 Потерял Кирчика!")
+	print("🙈 Потерял Кирчика!")
 
 func wait_before_next_move() -> void:
-    if is_waiting:
-        return
+	if is_waiting:
+		return
 
-    is_waiting = true
-    velocity = Vector2.ZERO
-    sprite.play("idle")
+	is_waiting = true
+	velocity = Vector2.ZERO
+	sprite.play("idle")
 
-    await get_tree().create_timer(
-        randf_range(min_wait_time, max_wait_time)
-    ).timeout
+	await get_tree().create_timer(
+		randf_range(min_wait_time, max_wait_time)
+	).timeout
 
-    is_waiting = false
+	is_waiting = false
 
 func _on_health_changed(_cur, _max, damage_taken) -> void:
  hit_effect()
@@ -86,52 +86,52 @@ func _on_died() -> void:
  queue_free()
 
 func _process(delta: float) -> void:
-    z_index = int(feet_marker.global_position.y)
-    update_perspective()
+	z_index = int(feet_marker.global_position.y)
+	update_perspective()
 
-    if velocity.length() > 1:
-        sway_time += delta * walk_speed
-        sprite.rotation = sin(sway_time) * deg_to_rad(walk_sway)
-    else:
-        sprite.rotation = lerp_angle(sprite.rotation, 0.0, delta * 8.0)
+	if velocity.length() > 1:
+		sway_time += delta * walk_speed
+		sprite.rotation = sin(sway_time) * deg_to_rad(walk_sway)
+	else:
+		sprite.rotation = lerp_angle(sprite.rotation, 0.0, delta * 8.0)
 
 func _physics_process(_delta: float) -> void:
  _move()
 
 
 func _move() -> void:
-    if is_waiting:
-     return
-    # Проверяем, дошли ли мы до конца.
-    if navigation.is_navigation_finished():
-        velocity = Vector2.ZERO
-        if sprite.animation != "idle":
-            sprite.play("idle")
-        # Если мы уже стоим, move_and_slide() можно не вызывать каждую секунду
-        return
-    # Получаем следующую точку маршрута.
-    var next_point := navigation.get_next_path_position()
-    # Направление к следующей точке.
-    var direction := global_position.direction_to(next_point)
+	if is_waiting:
+	 return
+	# Проверяем, дошли ли мы до конца.
+	if navigation.is_navigation_finished():
+		velocity = Vector2.ZERO
+		if sprite.animation != "idle":
+			sprite.play("idle")
+		# Если мы уже стоим, move_and_slide() можно не вызывать каждую секунду
+		return
+	# Получаем следующую точку маршрута.
+	var next_point := navigation.get_next_path_position()
+	# Направление к следующей точке.
+	var direction := global_position.direction_to(next_point)
 
-    vision_controller.set_direction(direction)
+	vision_controller.set_direction(direction)
 
-    velocity = direction * speed
+	velocity = direction * speed
 
-    if sprite.animation != "walk":
-        sprite.play("walk")
+	if sprite.animation != "walk":
+		sprite.play("walk")
 
-    move_and_slide()
+	move_and_slide()
 
 
 func move_to(target: Vector2) -> void:
-    print(sprite.animation)
-    navigation.target_position = target
+	print(sprite.animation)
+	navigation.target_position = target
 
-    var direction := global_position.direction_to(target)
-    vision_controller.set_direction(direction)
+	var direction := global_position.direction_to(target)
+	vision_controller.set_direction(direction)
 
-    sprite.play("walk")
+	sprite.play("walk")
 
 func update_perspective() -> void:
  var scale_factor := clampf(
