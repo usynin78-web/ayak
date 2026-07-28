@@ -34,8 +34,8 @@ func load_mods_from_folder(path: String, create_if_missing: bool) -> void:
   if create_if_missing:
    var err := DirAccess.make_dir_recursive_absolute(path)
    if err != OK:
-	push_warning("Не удалось создать папку модов: " + path)
-	return
+    push_warning("Не удалось создать папку модов: " + path)
+    return
   else:
    return
 
@@ -53,17 +53,17 @@ func load_mods_from_folder(path: String, create_if_missing: bool) -> void:
   if !dir.current_is_dir() and file.get_extension().to_lower() == "pck":
 
    if loaded_files.has(file):
-	file = dir.get_next()
-	continue
+    file = dir.get_next()
+    continue
 
    var mod_path := path.path_join(file)
 
    if ProjectSettings.load_resource_pack(mod_path):
-	loaded_mods.append(file)
-	loaded_files[file] = true
-	print("✓ Загружен мод: ", mod_path)
+    loaded_mods.append(file)
+    loaded_files[file] = true
+    print("✓ Загружен мод: ", mod_path)
    else:
-	push_warning("✗ Не удалось загрузить мод: " + mod_path)
+    push_warning("✗ Не удалось загрузить мод: " + mod_path)
 
   file = dir.get_next()
 
