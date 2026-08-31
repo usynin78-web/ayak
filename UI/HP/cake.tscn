@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://uyosw5lg634q"]
+[gd_scene format=3 uid="uid://uyosw5lg634q"]
 
 [ext_resource type="Texture2D" uid="uid://bi7xgl5g42ctw" path="res://objects/Торт, от которого у меня оргазм.webp" id="1_fnqhu"]
 [ext_resource type="Script" uid="uid://ch2angr03d6b3" path="res://UI/HP/cake.gd" id="2_fnqhu"]
@@ -11,26 +11,28 @@ height = 97.80851
 radius = 32.00561
 height = 91.99428
 
-[node name="cake" type="CharacterBody2D" groups=["hp"]]
+[node name="cake" type="CharacterBody2D" unique_id=1581965341 groups=["hp"]]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1673485540]
 texture = ExtResource("1_fnqhu")
 
-[node name="Area2D" type="Area2D" parent="." groups=["hp"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=549097532 groups=["hp"]]
 position = Vector2(-9, 66)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("2_fnqhu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=385988396]
 position = Vector2(10, -68)
 rotation = -1.5557593
 shape = SubResource("CapsuleShape2D_khg8s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891170666]
 position = Vector2(1.0000005, -3.0000005)
 rotation = -1.5722061
 shape = SubResource("CapsuleShape2D_fnqhu")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1435186068]
 position = Vector2(0, 38)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

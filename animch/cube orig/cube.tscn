@@ -88,7 +88,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4hk6m")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -132,7 +132,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_q2vd0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 12.0
 }]
@@ -180,8 +180,13 @@ position = Vector2(-41, 248.00002)
 rotation = 1.560064
 polygon = PackedVector2Array(226.16943, -14.573554, 149.0166, 185.60995, -28.658234, 340.71204, -293.75916, 441.87277, -316.22064, -25.990623, -295.20877, -541.1994, -20.641296, -406.24493, 165.75949, -256.2358)
 
-[node name="VisionController" type="Node" parent="." unique_id=1990055766 node_paths=PackedStringArray("vision_area")]
+[node name="VisionController" type="Node" parent="." unique_id=1990055766 node_paths=PackedStringArray("vision_area", "vision_ray")]
 script = ExtResource("4_3vdu5")
 vision_area = NodePath("../VisionArea")
+vision_ray = NodePath("../VisionRayCast")
+
+[node name="VisionRayCast" type="RayCast2D" parent="." unique_id=755361020]
+target_position = Vector2(0, 0)
+collision_mask = 3
 
 [connection signal="health_changed" from="AnimatedSprite2D/Hurtbox/HealthComponent" to="AnimatedSprite2D/Hurtbox/HealthComponent" method="_on_health_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://t0icfbp38p41"]
+[gd_scene format=3 uid="uid://t0icfbp38p41"]
 
 [ext_resource type="Texture2D" uid="uid://bnwuyvwgt0gmf" path="res://objects/Без названия94_20260401222844.webp" id="1_l2a2l"]
 [ext_resource type="Script" uid="uid://cbaawyo8ksiig" path="res://UI/HP/damage.gd" id="2_4kuhe"]
@@ -11,25 +11,27 @@ height = 175.80981
 radius = 35.94467
 height = 120.13501
 
-[node name="damage" type="CharacterBody2D"]
+[node name="damage" type="CharacterBody2D" unique_id=1927382738]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=613175748]
 texture = ExtResource("1_l2a2l")
 
-[node name="Area2D" type="Area2D" parent="." groups=["damage", "hp"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1851126476 groups=["damage", "hp"]]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("2_4kuhe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1990542474]
 position = Vector2(-1.0000029, 9)
 rotation = -1.5903655
 shape = SubResource("CapsuleShape2D_7d080")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1869438107]
 position = Vector2(-4.9999986, 9.000092)
 rotation = -1.5365303
 shape = SubResource("CapsuleShape2D_lf4hv")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=108697821]
 position = Vector2(0, 49)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
