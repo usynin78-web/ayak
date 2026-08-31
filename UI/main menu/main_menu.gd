@@ -22,13 +22,25 @@ func _ready() -> void:
 	setting_button.pressed.connect(_on_setting_pressed)
 
 func _input(event: InputEvent) -> void:
-	if not started and event is InputEventKey and event.pressed:
+	# Если вступительный экран уже был закрыт, ничего не делаем.
+	if started:
+		return
+
+	# Любая нажатая клавиша клавиатуры
+	# ИЛИ нажатая левая кнопка мыши запускает меню.
+	if (event is InputEventKey and event.pressed) \
+	or (event is InputEventMouseButton \
+	and event.pressed \
+	and event.button_index == MOUSE_BUTTON_LEFT):
+
 		started = true
 		anim_player.play("title_up")
+
 		start_button.visible = true
 		exit_button.visible = true
 		setting_button.visible = true
 
+		# Если есть сохранение, показываем кнопку продолжения.
 		if CheckpointManager.has_save():
 			continue_button.visible = true
 
