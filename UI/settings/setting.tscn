@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://f5t3tqc3tc3l"]
+
+[ext_resource type="Script" uid="uid://bki1v52ny8iwb" path="res://UI/settings/setting.gd" id="1_2itu1"]
+[ext_resource type="FontFile" uid="uid://bvvpcwpmb13hq" path="res://font/mt_tare-regular/MT_TARE Regular/MT_TARE Regular.ttf" id="2_ha4sg"]
+[ext_resource type="Theme" uid="uid://c187p45dgfqp" path="res://font/main_menu_th.tres" id="3_vknp2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ga33"]
+font = ExtResource("2_ha4sg")
+font_size = 113
+
+[sub_resource type="Theme" id="Theme_cmpc1"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qvtxt"]
+
+[sub_resource type="Theme" id="Theme_co4yu"]
+default_font = ExtResource("2_ha4sg")
+default_font_size = 38
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1fh8"]
+
+[node name="Control" type="Control" unique_id=321628895]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2itu1")
+
+[node name="Label" type="Label" parent="." unique_id=241847166]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -508.5
+offset_right = 508.5
+offset_bottom = 114.0
+grow_horizontal = 2
+text = "Настройки"
+label_settings = SubResource("LabelSettings_8ga33")
+
+[node name="LeftPanel" type="Panel" parent="." unique_id=349865652]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 163.0
+offset_right = 504.0
+offset_bottom = 1113.0
+theme = SubResource("Theme_cmpc1")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qvtxt")
+
+[node name="screen" type="Button" parent="LeftPanel" unique_id=319746152]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -10.0
+offset_right = 469.0
+offset_bottom = 87.0
+theme = ExtResource("3_vknp2")
+theme_override_font_sizes/font_size = 88
+text = "Экран"
+
+[node name="graphic" type="Button" parent="LeftPanel" unique_id=309994219]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 108.0
+offset_right = 479.0
+offset_bottom = 205.0
+theme = ExtResource("3_vknp2")
+theme_override_font_sizes/font_size = 63
+text = "Графика"
+
+[node name="exit_to_menu" type="Button" parent="LeftPanel" unique_id=1270665881]
+layout_mode = 0
+offset_left = 38.000004
+offset_top = 772.0
+offset_right = 530.0
+offset_bottom = 869.0
+scale = Vector2(0.87192637, 1.0454545)
+theme = ExtResource("3_vknp2")
+theme_override_font_sizes/font_size = 74
+text = "В меню"
+
+[node name="RightPanel" type="Panel" parent="." unique_id=2060807242]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021000002
+anchor_bottom = 0.037
+offset_left = 520.0
+offset_top = 167.0
+offset_right = 1886.68
+offset_bottom = 1050.04
+theme = SubResource("Theme_co4yu")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v1fh8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RightPanel" unique_id=976041509]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 1418.0
+offset_bottom = 929.0
+
+[node name="SettingsList" type="VBoxContainer" parent="RightPanel/ScrollContainer" unique_id=4356989]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="." unique_id=222737871]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 176.0
+offset_right = 493.0
+offset_bottom = 216.0
+scale = Vector2(5.6400013, 23.56)
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=422829817]
+layout_mode = 0
+offset_left = 9.999999
+offset_top = 144.0
+offset_right = 50.0
+offset_bottom = 148.0
+scale = Vector2(48.320004, 3.9999998)

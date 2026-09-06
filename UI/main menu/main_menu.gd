@@ -22,12 +22,9 @@ func _ready() -> void:
 	setting_button.pressed.connect(_on_setting_pressed)
 
 func _input(event: InputEvent) -> void:
-	# Если вступительный экран уже был закрыт, ничего не делаем.
 	if started:
 		return
 
-	# Любая нажатая клавиша клавиатуры
-	# ИЛИ нажатая левая кнопка мыши запускает меню.
 	if (event is InputEventKey and event.pressed) \
 	or (event is InputEventMouseButton \
 	and event.pressed \
@@ -40,7 +37,6 @@ func _input(event: InputEvent) -> void:
 		exit_button.visible = true
 		setting_button.visible = true
 
-		# Если есть сохранение, показываем кнопку продолжения.
 		if CheckpointManager.has_save():
 			continue_button.visible = true
 
@@ -49,8 +45,6 @@ func _on_start_pressed():
 	await _play_loading_full_animation()
 
 	if tree:
-		# Вызываем ВСЕГДА. Даже если сохранения нет на диске, 
-		# это очистит список убитых врагов в оперативной памяти.
 		CheckpointManager.clear_save()
 		
 		tree.change_scene_to_file("res://loc/roomtest/main.tscn")
@@ -62,16 +56,12 @@ func _on_continue_pressed() -> void:
 	await _play_loading_full_animation()
 
 	if tree:
-		# При продолжении мы НЕ очищаем словарь, 
-		# так как убитые враги должны остаться мертвыми.
 		tree.change_scene_to_file("res://loc/roomtest/main.tscn")
 	else:
 		push_error("SceneTree не найден")
 
-# ... (остальные функции без изменений) ...
-
 func _on_setting_pressed() -> void:
-	get_tree().change_scene_to_file("res://UI/main menu/setting.tscn")
+	get_tree().change_scene_to_file("res://UI/settings/setting.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
