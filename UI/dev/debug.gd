@@ -1,7 +1,7 @@
 extends Label
 
 @onready var player = $"../../c3"
-@onready var room = $"../../room"
+@onready var room = $"../../Node2D"
 
 func _process(_delta):
 	text = """

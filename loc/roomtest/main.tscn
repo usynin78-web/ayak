@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ch7xex51hk6aa" path="res://loc/roomtest/room.tscn" id="2_ylkyd"]
 [ext_resource type="PackedScene" uid="uid://b8lfkrsaj8rb3" path="res://animch/c3/c3.tscn" id="3_igtjs"]
 [ext_resource type="PackedScene" uid="uid://cfjm7vprwitbq" path="res://UI/HP/hp.tscn" id="4_0n8at"]
+[ext_resource type="Script" uid="uid://diwvg5vkk2jr1" path="res://UI/dev/debug.gd" id="5_ylkyd"]
 
 [sub_resource type="Animation" id="Animation_sjkhc"]
 resource_name = "fade_out"
@@ -61,5 +62,17 @@ color = Color(0, 0, 0, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer" unique_id=567192228]
 root_node = NodePath("../ColorRect")
 libraries/ = SubResource("AnimationLibrary_7d080")
+
+[node name="Label" type="Label" parent="FadeLayer" unique_id=1976934434]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -312.0
+offset_right = 76.0
+offset_bottom = -289.0
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("5_ylkyd")
 
 [connection signal="animation_finished" from="FadeLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

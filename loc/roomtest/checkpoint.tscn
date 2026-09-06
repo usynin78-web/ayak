@@ -30,8 +30,8 @@ texture = ExtResource("1_q30nc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1469944072 node_paths=PackedStringArray("e_icon", "save_label") groups=["checpoint"]]
 position = Vector2(-16, 414)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("2_i3qfx")
 e_icon = NodePath("../CanvasLayer/TextureRect")
 save_label = NodePath("../CanvasLayer/Label")

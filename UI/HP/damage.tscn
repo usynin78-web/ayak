@@ -17,8 +17,8 @@ height = 120.13501
 texture = ExtResource("1_l2a2l")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1851126476 groups=["damage", "hp"]]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("2_4kuhe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1990542474]

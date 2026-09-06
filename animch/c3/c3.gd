@@ -132,9 +132,3 @@ func _on_died() -> void:
 	velocity = Vector2.ZERO
 	print("Кир умер.")
 	
-	# Если ты хочешь, чтобы враги воскресли после твоей смерти:
-	# CheckpointManager.removed_objects.clear() 
-	
-	# Ждем немного и перезагружаем сцену
-	await get_tree().create_timer(2.0).timeout
-	get_tree().reload_current_scene()
