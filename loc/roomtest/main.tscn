@@ -38,12 +38,6 @@ position = Vector2(982.00006, 584.00006)
 
 [node name="hp" parent="UI" unique_id=173979953 instance=ExtResource("4_0n8at")]
 
-[node name="debug" type="Label" parent="UI" unique_id=1622685198]
-visible = false
-offset_top = 166.0
-offset_right = 40.0
-offset_bottom = 189.0
-
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=30316155]
 
 [node name="ColorRect" type="ColorRect" parent="FadeLayer" unique_id=573274141]
